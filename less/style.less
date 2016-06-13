@@ -1,0 +1,345 @@
+@import '../rcp-parent-theme/less/variables';
+@import '../rcp-parent-theme/less/common-imports';
+
+//@import url(https://fonts.googleapis.com/css?family=Fjalla+One|Roboto+Slab:400,700,300,100);
+
+// <link href="http://fonts.googleapis.com/css?family=Fjalla+One|Cantarell:400,400italic,700italic,700" rel="stylesheet" type="text/css" />
+
+@import 'variables';
+@import 'typography';
+@import 'pricing';
+@import 'home';
+@import 'gravity-forms';
+@import 'custom-pages';
+@import 'tables';
+@import 'footer';
+@import 'magnific-popup';
+@import 'magnific-custom';
+@import 'custom';
+@import 'flickity';
+@import 'compatibility/mc4wp';
+@import 'tabs';
+
+#masthead,
+.site-footer {
+	background: #0c023b;
+	background: rgba(0, 0, 0, 0) linear-gradient(70deg, #3F1258, #0c023b) repeat scroll 0 0;
+}
+
+#masthead {
+	border-bottom: 10px solid rgba( 255, 255, 255, 0.25 );
+
+}
+
+#colophon {
+	border-top: 10px solid rgba( 255, 255, 255, 0.25 );
+}
+
+
+.site-header-main {
+//	max-width: @page-max-width;
+	max-width: 1440px;
+}
+
+.home #masthead {
+	background: transparent;
+	margin: 0 auto;
+	border-bottom: none;
+}
+
+#masthead .site-title a {
+	display: flex;
+	-webkit-display: flex;
+	align-items: center;
+}
+
+.site-title span {
+	display: none;
+}
+
+#ppp-logo {
+	margin-bottom: 0;
+	width: 30px;
+}
+
+#ppp-logo-text {
+	width: 140px;
+	display: none;
+	margin-left: 0.75rem;
+}
+
+#ppp-logo path,
+#ppp-logo-text path {
+	fill: rgba(255,255,255,0.8) !important;
+}
+
+.site-title a:hover #ppp-logo .piece {
+	opacity:0;
+	-webkit-animation: fade 1s ease 0.2s forwards;
+	animation: fade 1s ease 0.2s forwards;
+}
+
+.site-title a:hover #ppp-logo .p2 {
+   -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+.site-title a:hover #ppp-logo .p3 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.1s;
+}
+
+@keyframes fade {
+
+	0% {
+	  opacity: 0;
+	}
+
+	100% {
+	  opacity: 1;
+	}
+}
+
+.flickity-page-dots .dot {
+	position: relative;
+}
+
+.flickity-page-dots .dot:after {
+	content: '';
+	border: 3px solid @accent-color;
+    -webkit-border-radius: 100%;
+	border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -15px 0 0 -15px;
+	opacity: 0;
+}
+
+.flickity-page-dots .dot.is-selected:after {
+	-webkit-animation: blip 1s ease-out;
+	animation: blip 1s ease-out;
+
+    -webkit-animation-iteration-count: 1;
+	animation-iteration-count: 1;
+}
+
+@-webkit-keyframes blip {
+    0% {-webkit-transform: scale(0.5, 0.5); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(1.5, 1.5); opacity: 0.0;}
+}
+
+@keyframes blip {
+    0% {transform: scale(0.5, 0.5); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {transform: scale(1.5, 1.5); opacity: 0.0;}
+}
+
+.hero {
+	width: 100%;
+	position: relative;
+	padding-bottom: 5rem;
+	background: rgba(0, 0, 0, 0) linear-gradient(0deg, #350154, #1c0550 35%, #10044e 65%, #0c023b) repeat scroll 0 0;
+}
+
+.hero h1 {
+	font-weight: 500;
+	color: #dceaf8;
+	font-size: 3rem;
+}
+
+.hero p {
+	color: #fff;
+}
+
+.hero p.intro {
+    color: #abcaeb;
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0 auto 3rem;
+    max-width: 710px;
+}
+
+.hero .container-fluid {
+	padding-bottom: 10%;
+}
+
+.hero #cta .button {
+	background: @accent-color;
+	font-size: 1.3rem;
+	position: relative;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1;
+}
+
+.chart #graphs {
+	width: 100%;
+	height: 100%;
+	display: block;
+	overflow: visible;
+}
+
+#cta {
+	position: relative;
+	display: inline-block;
+
+	a {
+		z-index: 10;
+	}
+
+}
+
+@gradient-color-1: #05294A;
+@gradient-color-2: #413366;
+
+// charts
+.chart {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
+	width: 100%;
+}
+
+.site-branding img {
+	height: 3rem;
+	padding-right: 0.5rem;
+}
+
+.site-branding img,
+.site-branding span {
+	vertical-align: middle;
+}
+
+.site-title {
+	font-weight: 500;
+	font-size: 1.5rem;
+}
+
+#dataset-2,
+#dataset-3 {
+	fill-opacity: 0.85;
+}
+
+@media only screen and ( min-width: @screen-sm-min ) {
+
+	#ppp-logo-text {
+		display: inline-block;
+	}
+
+	.chart {
+		display: block;
+	}
+
+	.dataset {
+		-webkit-transform: translate(100%) scale(0.2);
+		transform: translate(100%) scale(0.2);
+	}
+
+	@-webkit-keyframes raise {
+	  0% {
+	    -webkit-transform: scaleY(0);
+	            transform: scaleY(0);
+	  }
+	  75% {
+	    -webkit-transform: scaleY(1.1);
+	            transform: scaleY(1.1);
+	  }
+	  100% {
+	    -webkit-transform: scaleY(1);
+	            transform: scaleY(1);
+	  }
+	}
+
+	@keyframes raise {
+
+	  0% {
+	    -webkit-transform: scaleY(0.01);
+	            transform: scaleY(0.01);
+	  }
+	  75% {
+	    -webkit-transform: scaleY(1.05);
+	            transform: scaleY(1.05);
+	  }
+	  100% {
+	    -webkit-transform: scaleY(1);
+	            transform: scaleY(1);
+	  }
+	}
+
+	.dataset {
+		-webkit-transform-origin: bottom center;
+		-ms-transform-origin: bottom center;
+		transform-origin: bottom center;
+		-moz-transform-origin: 350px 620px; // fix firefox
+
+		-webkit-transform: scaleY(0);
+		-ms-transform: scaleY(0);
+		transform: scaleY(0);
+	}
+
+	.loaded .dataset {
+		opacity: 1;
+		-webkit-animation: raise 0.75s ease 0.2s forwards;
+		animation: raise 0.75s ease 0.2s forwards;
+	}
+
+	.loaded #dataset-1 {
+		-webkit-animation-delay: 1.6s;
+		animation-delay: 1.6s;
+	}
+
+	.loaded #dataset-2 {
+		-webkit-animation-delay: 0.3s;
+		animation-delay: 0.3s;
+	}
+
+	.loaded #dataset-3 {
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+}
+
+#like-this {
+	display: none;
+	transition: all .25s linear;
+
+}
+
+.loaded #like-this {
+	top: 22%;
+	right: -90%;
+	opacity: 0.5;
+	-webkit-transition-delay: 2s;
+   transition-delay: 2s;
+}
+
+@media only screen and ( min-width: @screen-lg-min ) {
+
+	#like-this {
+		position: absolute;
+		right: -90%;
+		top: 0%;
+		display: block;
+		z-index: 1;
+		opacity: 0;
+	}
+
+}
+
+// Remove graphs etc from IE11 due to bug with SVGs
+@media all and ( -ms-high-contrast:none ) {
+	#like-this,
+	.chart #graphs {
+		display: none;
+	}
+
+	.hero .container-fluid {
+		padding-bottom: 0;
+	}
+}

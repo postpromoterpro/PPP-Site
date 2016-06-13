@@ -1,0 +1,238 @@
+// mailchimp for WordPress
+
+.mc4wp-form-fields {
+    display: -webkit-flex;
+    display: flex;
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+// navigation
+
+.menu-item.get-started .button {
+    color: #fff;
+    padding: 1rem 1.5rem;
+//    background: rgba( 255, 255, 255, 0.2 );
+    background: @accent-color;
+    border: none;
+}
+
+// pricing
+.share-for-discount {
+    background: @accent-color;
+}
+
+.share-for-discount h3,
+.share-for-discount p {
+    color: #fff;
+}
+
+.share-for-discount h3 {
+    font-size: 2rem;
+}
+
+// homepage
+
+img.icon {
+    width: 64px;
+    margin-bottom: 1rem;
+}
+
+#plus-more h4 {
+    // text-transform: uppercase;
+    // font-size: 1.3rem;
+}
+
+.supported-integrations ul {
+    margin-bottom: 0;
+}
+
+.supported-integrations .table-header {
+    font-size: 1rem;
+}
+//
+// .supported-integrations .table-header span {
+//     align-self: center;
+// }
+
+.table-option h3 {
+    font-weight: 500;
+    position: relative;
+}
+
+.table-option.twitter h3 {
+    background: #55acee;
+    color: #fff;
+}
+
+.table-option img {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    margin-top: -1rem;
+}
+
+.table-option span {
+    vertical-align: middle;
+}
+
+.table-option.facebook h3 {
+    background: #3b5999;
+    color: #fff;
+}
+
+.table-option.linkedin h3 {
+    background: #0077B5;
+    color: #fff;
+}
+
+.benefits img {
+    height: 64px;
+    margin-bottom: 1.5rem;
+}
+
+
+p.intro {
+    font-size: 2rem;
+}
+
+.benefits {
+    // background: @light-grey;
+}
+
+.detail {
+    background: @light-grey;
+
+    img {
+        display: block;
+    }
+}
+
+// screenshots slider
+
+.screenshots {
+    padding: 0;
+    background: @light-grey;
+}
+
+.screenshots img {
+    display: block;
+    margin: 0 auto;
+}
+
+.screenshots .slide-1 {
+    padding-top: 4rem;
+}
+
+.slide-2 {
+    max-width: 1400px;
+}
+
+.screenshots .flickity-page-dots {
+    bottom: -48px;
+}
+
+// testimonials
+section.testimonials {
+    background: @light-grey;
+}
+
+section.testimonials blockquote,
+section.testimonials blockquote p {
+    color: @body-text-color;
+}
+
+section.testimonials blockquote {
+    margin: 0;
+    padding-left: 0;
+    border-left: none;
+}
+
+.testimonials {
+    position: relative;
+}
+
+.testimonials .wrapper {
+    position: relative;
+}
+
+.testimonials .avatar {
+    border-radius: 100%;
+    margin-bottom: 1rem;
+}
+
+.testimonials .flickity-page-dots {
+    margin-top: 2rem;
+}
+
+// slider
+.gallery-cell {
+    width: 100%;
+}
+
+
+.testimonials .gallery-cell {
+    text-align: center;
+    padding-bottom: 4rem;
+}
+
+.title-rule {
+    text-transform: uppercase;
+    position: relative;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+}
+
+.title-rule::before {
+    content: "";
+    border-top: 2px solid @light-grey;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+
+
+.title-rule > span {
+    background-color: #fff;
+    padding: 0 2rem;
+    position: relative;
+}
+
+@media only screen and ( min-width: @screen-sm-min ) {
+
+    .slider .wrapper:before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        pointer-events: none;
+        background-image: linear-gradient(to left, rgba(255, 255, 255, 0), @light-grey 100%);
+        width: 200px;
+        height: 100%;
+    }
+
+    .slider .wrapper:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        right: 0;
+        pointer-events: none;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0), @light-grey 100%);
+        width: 200px;
+        height: 100%;
+    }
+
+}
+
+@media only screen and ( max-width: @screen-xs-max ) {
+
+    #logo-text {display: none;}
+
+}

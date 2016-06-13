@@ -1,0 +1,44 @@
+// custom styling, specific to PPP
+
+// center logo on checkout page
+.edd-checkout .site-branding {
+    margin: 0 auto;
+    padding-left: 0;
+}
+
+// #menu-toggle-wrap {
+// 	padding-bottom: 1rem;
+// }
+
+// .site-header-menu {
+// 	margin-top: 0;
+// }
+
+.site-header-wrap {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+
+@media only screen and ( min-width: @screen-md-min ) {
+
+    // puts navigation up beside logo
+	.site-header-menu {
+        // -webkit-flex: 0 1 auto;
+        // -ms-flex: 0 1 auto;
+        // flex: 0 1 auto;
+        padding-right: 2rem;
+	}
+
+    .site-header-menu {
+        -webkit-flex: none;
+        -ms-flex: none;
+        flex: none;
+    }
+
+}
