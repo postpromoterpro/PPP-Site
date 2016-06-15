@@ -134,6 +134,8 @@ http://flickity.metafizzy.co
 
 	.edd-gateway-option {
 		margin-right: 0;
+		display: block;
+		width: 100%;
 	}
 
 }
