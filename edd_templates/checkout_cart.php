@@ -39,8 +39,8 @@ global $post; ?>
 					</td>
 					<td>
 						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> Instant plugin download</span>
-						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> One year access to easy plugin updates</span>
-						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> One year access to professional support</span>
+						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> One year access to easy updates</span>
+						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> One year of professional support</span>
 						<?php if ( edd_recurring()->cart_contains_recurring() ) : ?>
 						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> Renews yearly with hassle-free subscriptions</span>
 						<?php endif; ?>
