@@ -37,7 +37,7 @@ function ppp_pricing_table() {
 						</ul>
 
 						<div class="footer">
-							<a class="button" href="<?php echo $download_url; ?>&amp;edd_options[price_id]=1">Purchase</a>
+							<a class="button" href="<?php echo $download_url; ?>&amp;edd_options[price_id]=0">Purchase</a>
 						</div>
 
 					</div>
@@ -63,7 +63,7 @@ function ppp_pricing_table() {
 							</ul>
 
 							<div class="footer">
-								<a class="button" href="<?php echo $download_url; ?>&amp;edd_options[price_id]=2">Purchase</a>
+								<a class="button" href="<?php echo $download_url; ?>&amp;edd_options[price_id]=1">Purchase</a>
 							</div>
 					</div>
 				</div>
@@ -84,7 +84,7 @@ function ppp_pricing_table() {
 							</ul>
 
 							<div class="footer">
-								<a class="button" href="<?php echo $download_url; ?>&amp;edd_options[price_id]=3">Purchase</a>
+								<a class="button" href="<?php echo $download_url; ?>&amp;edd_options[price_id]=2">Purchase</a>
 							</div>
 					</div>
 				</div>
@@ -106,7 +106,7 @@ function ppp_pricing_table() {
 							</ul>
 
 							<div class="footer">
-								<a class="button" href="<?php echo $download_url; ?>&amp;edd_options[price_id]=4">Purchase</a>
+								<a class="button" href="<?php echo $download_url; ?>&amp;edd_options[price_id]=3">Purchase</a>
 							</div>
 
 					</div>
