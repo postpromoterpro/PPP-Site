@@ -95,3 +95,45 @@ http://flickity.metafizzy.co
 	display: block;
 	margin: 0 auto;
 }
+
+/** Mobiles!!!! */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	select,
+	textarea,
+	input {
+		font-size: 16px;
+	}
+}
+
+
+@media screen and (max-width: 719px) {
+	#edd_checkout_wrap {
+		width: 100%;
+	}
+
+	#edd_checkout_form_wrap input.edd-input {
+		width: 100%;
+		line-height: 32px;
+		font-size: 16px;
+	}
+
+	#edd_checkout_user_info p, #edd_cc_address p, #edd_cc_fields p {
+		width: 100%;
+		display: block;
+	}
+
+	.edd_cart_item td {
+		width: 100%;
+		display: block;
+	}
+
+	#edd_checkout_cart tr:first-child td:first-child {
+		border-right: 2px solid #f5f5f5;
+		border-bottom: none;
+	}
+
+	.edd-gateway-option {
+		margin-right: 0;
+	}
+
+}
