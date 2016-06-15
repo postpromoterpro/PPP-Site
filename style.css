@@ -111,6 +111,10 @@ http://flickity.metafizzy.co
 		width: 100%;
 	}
 
+	.ppp-checkout-item-features {
+		font-size: .9em;
+	}
+
 	#edd_checkout_form_wrap input.edd-input {
 		width: 100%;
 		line-height: 32px;
