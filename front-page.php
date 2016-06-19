@@ -6,8 +6,8 @@ get_header(); ?>
 
 <section class="container-fluid pv-xs-2 pv-lg-6 ph-lg-4 center-xs">
 	<div class="wrapper slim">
-		<h1>This heading will say something awesome.</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		<h1>Engage your followers</h1>
+		<p>Engage people who may have missed the original post; Post Promoter Pro allows you to customize the text that sits before the link to your content. Experiment with hashtags, a call to action, or interesting text that starts a conversation and compels your followers to view your post.</p>
 	</div>
 
 </section>
@@ -26,7 +26,7 @@ get_header(); ?>
 				<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/svgs/share.svg'; ?>" />
 				<h2>Share to your favorite social networks.</h2>
 
-				<p class="mb-xs-2 mb-lg-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<p class="mb-xs-2 mb-lg-0">With built in support for Twitter, Facebook, and LinkedIn (and support for others on the way), you'll be able to reach your followers wherever they are.</p>
 			</div>
 
 			<div class="col-xs-12 col-lg-8">
