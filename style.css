@@ -96,6 +96,13 @@ http://flickity.metafizzy.co
 	margin: 0 auto;
 }
 
+/** MailChimip Form */
+.mc-field-group input[type="email"] {
+	width: 75%;
+}
+
+#mc-embedded-subscribe { margin-top: -5px; }
+
 /** Mobiles!!!! */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 	select,
@@ -104,7 +111,6 @@ http://flickity.metafizzy.co
 		font-size: 16px;
 	}
 }
-
 
 @media screen and (max-width: 719px) {
 	#edd_checkout_wrap {

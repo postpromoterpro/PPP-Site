@@ -142,19 +142,22 @@ get_header(); ?>
 		<div class="row center-xs">
 
 			<div class="col-xs-12 col-md-4 col-lg-4 ">
+				<h4><i class="fa fa-life-ring" aria-hidden="true"></i></h4>
 				<h4>World-class support</h4>
 				<p>We're here to answer any Post Promoter Pro related questions you have with friendly, email-based support.</p>
 
 			</div>
 
 			<div class="col-xs-12 col-md-4 col-lg-4">
+				<h4><i class="fa fa-code-fork" aria-hidden="true"></i></h4>
 				<h4>Developer Friendly</h4>
 				<p>This extensible plugin is built from the ground up, using WordPress actions and filters that allow you to adapt it for your specific needs.</p>
 			</div>
 
 			<div class="col-xs-12 col-md-4 col-lg-4">
-				<h4>World-class support</h4>
-				<p>We're here to answer any Post Promoter Pro related questions you have with friendly, email-based support.</p>
+				<h4><i class="fa fa-clock-o" aria-hidden="true"></i></h4>
+				<h4>Quick and Easy Setup</h4>
+				<p>No need to hastle with keys and tokens. Just install and sign into your social media accounts. It's that easy.</p>
 			</div>
 
 		</div>
