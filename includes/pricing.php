@@ -70,7 +70,7 @@ function ppp_pricing_table() {
 
 				<div class="col-xs-12 col-sm-6 col-lg-3 align-xs-center mb-xs-2">
 					<div class="table-option pv-xs-2">
-							<h2>Enterprise</h2>
+							<h2>Professional</h2>
 
 							<ul class="mb-xs-2">
 
@@ -78,7 +78,7 @@ function ppp_pricing_table() {
 									<span class="price"><span class="currency">$</span>249</span>
 								</li>
 
-								<li class="feature"><strong>2 to 5 sites</strong></li>
+								<li class="feature"><strong>Up to 15 Sites</strong></li>
 								<li class="feature">1 year of updates</li>
 								<li class="feature">1 year of support</li>
 							</ul>
@@ -97,7 +97,7 @@ function ppp_pricing_table() {
 							<ul class="mb-xs-2">
 
 								<li class="pricing">
-									<span class="price"><span class="currency">$</span>349</span>
+									<span class="price"><span class="currency">$</span>429</span>
 								</li>
 
 								<li class="feature"><strong>Unlimited sites</strong></li>
