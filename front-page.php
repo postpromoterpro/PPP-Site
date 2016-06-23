@@ -118,7 +118,7 @@ get_header(); ?>
 		<div class="row pv-xs-2 pv-sm-4 middle-xs">
 
 			<div class="col-xs-12 col-sm-8">
-				<img src="<?php echo get_stylesheet_directory_uri() . '/images/slide-1.png'; ?>" />
+				<img src="<?php echo get_stylesheet_directory_uri() . '/images/schedule-view.png'; ?>" />
 			</div>
 
 			<div class="col-xs-12 col-sm-4 first-xs">
@@ -141,6 +141,12 @@ get_header(); ?>
 
 		<div class="row center-xs">
 
+			<div class="col-xs-12 col-md-4 col-lg-4">
+				<h4><i class="fa fa-clock-o" aria-hidden="true"></i></h4>
+				<h4>Quick and Easy Setup</h4>
+				<p>No need to hastle with keys and tokens. Just install and sign into your social media accounts. Its that easy.</p>
+			</div>
+
 			<div class="col-xs-12 col-md-4 col-lg-4 ">
 				<h4><i class="fa fa-life-ring" aria-hidden="true"></i></h4>
 				<h4>World-class support</h4>
@@ -152,12 +158,6 @@ get_header(); ?>
 				<h4><i class="fa fa-code-fork" aria-hidden="true"></i></h4>
 				<h4>Developer Friendly</h4>
 				<p>This extensible plugin is built from the ground up, using WordPress actions and filters that allow you to adapt it for your specific needs.</p>
-			</div>
-
-			<div class="col-xs-12 col-md-4 col-lg-4">
-				<h4><i class="fa fa-clock-o" aria-hidden="true"></i></h4>
-				<h4>Quick and Easy Setup</h4>
-				<p>No need to hastle with keys and tokens. Just install and sign into your social media accounts. It's that easy.</p>
 			</div>
 
 		</div>
