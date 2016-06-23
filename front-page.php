@@ -186,10 +186,10 @@ get_header(); ?>
 				</blockquote>
 			</div>
 			<div class="gallery-cell ph-sm-8">
-				<?php echo get_avatar('dan@ghost1227.com', '96' ); ?>
+				<?php echo get_avatar('dgriffiths@section214.com', '96' ); ?>
 				<blockquote>
 					<p>The difference Post Promoter Pro has made in my site traffic and user engagement has been nothing short of astounding. I can't recommend it enough to anyone who wants to truly leverage their social media presence!.</p>
-					<footer>—  Dan Griffiths, ghost1227.com</footer>
+					<footer>—  Dan Griffiths, section214.com</footer>
 				</blockquote>
 			</div>
 		</div>
