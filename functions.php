@@ -767,11 +767,11 @@ function ppp_payment_mode_select() {
 
 				do_action( 'edd_payment_mode_before_gateways' );
 				?>
-				<label for="edd-gateway-paypalexpress" class="edd-gateway-option" id="edd-gateway-option-paypalexpress">
+				<label for="edd-gateway-paypalexpress" class="edd-gateway-option edd-gateway-option-selected" id="edd-gateway-option-paypalexpress">
 					<span class="payment-type"><input type="radio" name="payment-mode" class="edd-gateway" id="edd-gateway-paypalexpress" value="paypalexpress" checked="checked" />PayPal <i class="fa fa-cc-paypal" aria-hidden="true"></i></span>
 					<span class="card-info">Pay quickly and securly with PayPal</span>
 				</label>
-				<label for="edd-gateway-stripe" class="edd-gateway-option edd-gateway-option-selected" id="edd-gateway-option-stripe">
+				<label for="edd-gateway-stripe" class="edd-gateway-option" id="edd-gateway-option-stripe">
 					<span class="payment-type"><input type="radio" name="payment-mode" class="edd-gateway" id="edd-gateway-stripe" value="stripe" />Credit Card <i class="fa fa-credit-card-alt" aria-hidden="true"></i></span>
 					<span class="card-info">Use your Visa, Mastercard, AMEX, or Discover</span>
 				</label>
