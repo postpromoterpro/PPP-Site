@@ -806,3 +806,29 @@ function ppp_empty_cart_on_add() {
 add_action( 'edd_add_to_cart', 'ppp_empty_cart_on_add', 1 );
 
 add_filter( 'edd_recurring_show_terms_on_cart_item', '__return_false' );
+
+// Add a custom login logo
+function ppp_site_login_logo() { ?>
+	<style type="text/css">
+		body{
+			background: rgba(0,0,0,0) linear-gradient(70deg, #3f1258, #0c023b) repeat scroll 0 0 !important;
+		}
+		#nav a {
+			color: #FFF;
+		}
+		body.login div#login h1 a {
+			background-image: url("<?php echo get_stylesheet_directory_uri(); ?>/images/logo-ppp-2.svg");
+			padding-bottom: 30px;
+				background-size: 600px 100px;
+				background-position: center top;
+				width: 600px;
+				margin-left: -140px;
+		}
+		#login form {
+			background: rgba(255,255,255,.75) !important;
+		}
+	</style>
+<?php }
+add_action( 'login_enqueue_scripts', 'ppp_site_login_logo' );
+// Remove our old hooks here
+remove_action( 'login_enqueue_scripts', 'ppp_login_logo' );
