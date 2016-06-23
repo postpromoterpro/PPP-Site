@@ -20,10 +20,27 @@ global $post; ?>
 				<tr class="edd_cart_item" id="edd_cart_item_<?php echo esc_attr( $key ) . '_' . esc_attr( $item['id'] ); ?>" data-download-id="<?php echo esc_attr( $item['id'] ); ?>">
 					<?php do_action( 'edd_checkout_table_body_first', $item ); ?>
 					<td class="edd_cart_item_name">
-						<p>
+						<p class="edd_cart_item_details">
 						<?php
+							$price_id   = isset( $item['options']['price_id'] ) ? $item['options']['price_id'] : false;
 							$item_title = edd_get_cart_item_name( $item );
 							echo '<span class="edd_checkout_cart_item_title">' . esc_html( $item_title ) . '</span>';
+
+							$item_prices = edd_get_variable_prices( $item['id'] );
+							$description = '';
+
+							if ( isset( $item_prices[ $price_id ]['description'] ) ) {
+								$description = $item_prices[ $price_id ]['description'];
+							}
+							?>
+							<span>
+							<select data-download-id="<?php echo $item['id']; ?>" id="variable-price-switcher">
+								<?php foreach ( $item_prices as $key => $price ) : ?>
+									<option <?php selected( $key, $price_id, true ); ?> value="<?php echo $key; ?>"><?php echo $price['description']; ?></option>
+								<?php endforeach; ?>
+							</select>
+							</span>
+							<?php
 							do_action( 'edd_checkout_cart_item_title_after', $item );
 						?>
 						</p>

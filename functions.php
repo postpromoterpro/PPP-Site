@@ -832,3 +832,20 @@ function ppp_site_login_logo() { ?>
 add_action( 'login_enqueue_scripts', 'ppp_site_login_logo' );
 // Remove our old hooks here
 remove_action( 'login_enqueue_scripts', 'ppp_login_logo' );
+
+
+// Variable pricing switcher
+function ppp_ajax_change_price_id() {
+	$download_id = $_POST['download_id'];
+	$price_id    = $_POST['price_id'];
+
+	// Remove cart contents
+	EDD()->session->set( 'edd_cart', NULL );
+
+	edd_add_to_cart( $download_id, array( 'price_id' => $price_id ) );
+
+	echo json_encode( array( 'url' => edd_get_checkout_uri() ) );
+	die();
+}
+add_action( 'wp_ajax_ppp_switch_price', 'ppp_ajax_change_price_id' );
+add_action( 'wp_ajax_nopriv_ppp_switch_price', 'ppp_ajax_change_price_id' );

@@ -1,17 +1,18 @@
 {
   "name": "post-promoter-pro",
   "parentTheme": "rcp-parent-theme",
-  "version": "1.0",
+  "version": "1.0.0",
   "Dependencies": {
-     "grunt-cli": "latest"
+    "grunt-cli": "latest"
   },
   "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-banner": "latest",
     "grunt-contrib-concat": "latest",
-    "grunt-contrib-uglify": "latest",
     "grunt-contrib-less": "latest",
+    "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-svgstore": "latest",
-    "grunt-banner": "latest",
     "matchdep": "*"
   }
 }

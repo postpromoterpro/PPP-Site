@@ -4,7 +4,7 @@ Template: rcp-parent-theme
 Theme URI: https://postpromoterpro.com/
 Author: Andrew Munro
 Author URI: http://sumobi.com
-Description:
+Description: 
 License: GNU General Public License
 License URI: license.txt
 */
@@ -18,6 +18,14 @@ http://flickity.metafizzy.co
 
 #edd_checkout_cart tr:first-child td:first-child {
 	border-right: none;
+}
+
+.edd_cart_item_details span { display: block; }
+
+#variable-price-switcher { width: 100%; }
+#variable-price-switcher, .edd-select {
+	border: 1px solid #787878;
+	height: 32px;
 }
 
 .ppp-checkout-item-features {
