@@ -56,10 +56,13 @@ global $post; ?>
 					</td>
 					<td>
 						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> Instant plugin download</span>
+						<?php if ( edd_recurring()->cart_contains_recurring() ) : ?>
 						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> One year access to easy updates</span>
 						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> One year of professional support</span>
-						<?php if ( edd_recurring()->cart_contains_recurring() ) : ?>
 						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> Renews yearly with hassle-free subscriptions</span>
+						<?php else: ?>
+						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> Lifetime access to updates</span>
+						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> Lifetime access to support</span>
 						<?php endif; ?>
 					</td>
 					<?php do_action( 'edd_checkout_table_body_last', $item ); ?>
