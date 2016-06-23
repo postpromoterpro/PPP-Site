@@ -101,6 +101,21 @@ http://flickity.metafizzy.co
 	width: 75%;
 }
 
+/** Subpage styles */
+.child_page-container .post_content h4 {
+	font-size: 1.25em;
+	margin-bottom: 0px;
+}
+
+.child_page-container .post_content a {
+	text-decoration: none;
+}
+
+.child_page-container .post_excerpt {
+	font-size: .81em;
+}
+
+
 #mc-embedded-subscribe { margin-top: -5px; }
 
 /** Mobiles!!!! */
