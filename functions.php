@@ -520,3 +520,14 @@ function ppp_remove_comments_on_attachments( $open, $post_id ) {
 
 }
 add_filter( 'comments_open', 'ppp_remove_comments_on_attachments', 10 , 2 );
+
+
+/**
+ * Adds a CSS class to Ninja Forms
+ */
+function ppp_ninja_forms_form_wrap_class( $wrap_class, $form_id ) {
+
+    $wrap_class = ' box';
+    return $wrap_class;
+}
+add_filter( 'ninja_forms_form_wrap_class', 'ppp_ninja_forms_form_wrap_class', 10, 2 );
