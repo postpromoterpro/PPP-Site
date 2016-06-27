@@ -1,6 +1,6 @@
 {
   "name": "post-promoter-pro",
-  "parentTheme": "rcp-parent-theme",
+  "parentTheme": "themedd",
   "version": "1.0.0",
   "Dependencies": {
     "grunt-cli": "latest"
