@@ -566,10 +566,10 @@ function ppp_stripe_credit_card_form( $echo = true ) {
 			</div>
 		<?php endif; ?>
 		<p id="edd-card-number-wrap">
-			<input type="text" autocomplete="off" <?php if ( isset( $edd_options['stripe_js_fallback'] ) ) { echo 'name="card_number" '; } ?>id="card_number" class="card-number edd-input required" placeholder="<?php _e( 'Card number', 'edds' ); ?>" />
+			<input type="tel" pattern="[0-9]{13,16}" autocomplete="off" <?php if ( isset( $edd_options['stripe_js_fallback'] ) ) { echo 'name="card_number" '; } ?>id="card_number" class="card-number edd-input required" placeholder="<?php _e( 'Card number', 'edds' ); ?>" />
 		</p>
 		<p id="edd-card-cvc-wrap">
-			<input type="text" size="4" autocomplete="off" <?php if ( isset( $edd_options['stripe_js_fallback'] ) ) { echo 'name="card_cvc" '; } ?>id="card_cvc" class="card-cvc edd-input required" placeholder="<?php _e( 'Security code', 'edds' ); ?>" />
+			<input type="tel" pattern="[0-9]{3,4}" size="4" maxlength="4" autocomplete="off" <?php if ( isset( $edd_options['stripe_js_fallback'] ) ) { echo 'name="card_cvc" '; } ?>id="card_cvc" class="card-cvc edd-input required" placeholder="<?php _e( 'Security code', 'edds' ); ?>" />
 		</p>
 		<p id="edd-card-name-wrap">
 			<input type="text" autocomplete="off" <?php if ( isset( $edd_options['stripe_js_fallback'] ) ) { echo 'name="card_name" '; } ?>id="card_name" class="card-name edd-input required" placeholder="<?php _e( 'Card name', 'edds' ); ?>" />
