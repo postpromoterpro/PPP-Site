@@ -849,3 +849,13 @@ function ppp_ajax_change_price_id() {
 }
 add_action( 'wp_ajax_ppp_switch_price', 'ppp_ajax_change_price_id' );
 add_action( 'wp_ajax_nopriv_ppp_switch_price', 'ppp_ajax_change_price_id' );
+
+/**
+ * Adds a CSS class to Ninja Forms
+ */
+function ppp_ninja_forms_form_wrap_class( $wrap_class, $form_id ) {
+
+	$wrap_class = ' box';
+	return $wrap_class;
+}
+add_filter( 'ninja_forms_form_wrap_class', 'ppp_ninja_forms_form_wrap_class', 10, 2 );
