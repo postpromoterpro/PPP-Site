@@ -48,11 +48,11 @@ function ppp_footer_menu() {
 			<div class="col-xs-12 col-sm-6">
 				<h4>Post Promoter Pro</h4>
 				<ul>
-					<li><a href="<?php echo site_url( 'pricing' ); ?>">Affiliates</a></li>
-					<li><a href="#refund-policy" class="popup-content" data-effect="mfp-move-from-bottom">Account</a></li>
+					<li><a href="<?php echo site_url( 'affiliates' ); ?>">Affiliates</a></li>
+					<li><a href="<?php echo site_url( 'account' ); ?>">Account</a></li>
 					<li><a href="#changelog" id="ppp-changelog" class="popup-content download-meta-link" data-effect="mfp-move-from-bottom">Changelog</a></li>
 					<li><a href="<?php echo esc_url( site_url('privacy-policy') ); ?>">Privacy Policy</a></li>
-					<li><a href="https://github.com/cklosowski/post-promoter-pro" target="_blank">GitHub</a></li>
+					<li><a href="https://github.com/postpromoterpro/post-promoter-pro" target="_blank">GitHub</a></li>
 				</ul>
 			</div>
 
@@ -60,12 +60,24 @@ function ppp_footer_menu() {
 
 				<div class="newsletter-wrap">
 					<h4>Register for the email list</h4>
-					<?php
-					$form = get_page_by_title( 'Subscribe', 'OBJECT', 'mc4wp-form' );
-					$id   = $form->ID;
-
-					echo do_shortcode( '[mc4wp_form id="' . $id . '"]' );
-					?>
+					<!-- Begin MailChimp Signup Form -->
+					<div id="mc_embed_signup">
+					<form action="//postpromoterpro.us2.list-manage.com/subscribe/post?u=7e77a38f4cffdf200e065cb42&amp;id=508ef9398e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+						<div id="mc_embed_signup_scroll">
+					<div class="mc-field-group">
+						<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address *">&nbsp;
+						<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+					</div>
+						<div id="mce-responses" class="clear">
+							<div class="response" id="mce-error-response" style="display:none"></div>
+							<div class="response" id="mce-success-response" style="display:none"></div>
+						</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+						<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_7e77a38f4cffdf200e065cb42_508ef9398e" tabindex="-1" value=""></div>
+						</div>
+					</form>
+					</div>
+					<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+					<!--End mc_embed_signup-->
 				</div>
 
 			</div>
@@ -88,26 +100,26 @@ add_action( 'themedd_footer_before_site_info', 'ppp_footer_menu' );
  */
 function ppp_get_changelog() {
 
-    // Check for transient, if none, grab remote HTML file
+	// Check for transient, if none, grab remote HTML file
 	if ( false === ( $html = get_transient( 'ppp_changelog' ) ) ) {
 
-        // Get remote HTML file
+		// Get remote HTML file
 		$response = wp_remote_get( 'https://postpromoterpro.com/downloads/post-promoter-pro/?changelog=1' );
 
-        // Check for error
+		// Check for error
 		if ( is_wp_error( $response ) ) {
 			return;
 		}
 
-        // Parse remote HTML file
+		// Parse remote HTML file
 		$data = wp_remote_retrieve_body( $response );
 
-        // Check for error
+		// Check for error
 		if ( is_wp_error( $data ) ) {
 			return;
 		}
 
-        // Store remote HTML file in transient, expire after 24 hours
+		// Store remote HTML file in transient, expire after 24 hours
 		set_transient( 'ppp_changelog', $data, 24 * HOUR_IN_SECONDS );
 
 	}
@@ -146,7 +158,7 @@ function ppp_changelog() {
 				},
 				midClick: true,
 				removalDelay: 300
-	        });
+			});
 
 		});
 	</script>
@@ -340,14 +352,14 @@ function ppp_header_logo() {
 
 		<script>
 		(function () {
-		    var load_chart;
-		    load_chart = function () {
-		        jQuery('body').removeClass('loaded');
-		        return setTimeout(function () {
-		            return jQuery('body').addClass('loaded');
-		        }, 500);
-		    };
-		    load_chart();
+			var load_chart;
+			load_chart = function () {
+				jQuery('body').removeClass('loaded');
+				return setTimeout(function () {
+					return jQuery('body').addClass('loaded');
+				}, 500);
+			};
+			load_chart();
 		}.call(this));
 		</script>
 
@@ -398,37 +410,37 @@ function ppp_site_branding() {
 	?>
 
 	<svg id="ppp-logo" width="100%" height="100%" viewBox="0 0 40 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
-	    <g id="logo">
+		<g id="logo">
 
-	            <path class="piece p3" d="M34.134,27.361C34.134,37.06 29.082,45.602 21.47,50.492L25.695,54.717C34.335,48.686 40,38.673 40,27.361C40,16.045 34.332,6.03 25.687,0L21.462,4.225C29.078,9.114 34.134,17.658 34.134,27.361Z" style="fill:white;fill-rule:nonzero;"/>
-
-
-	            <path class="piece p2" d="M24.772,27.361C24.772,34.519 20.597,40.667 14.555,43.577L18.932,47.954C25.938,43.763 30.639,36.102 30.639,27.362C30.639,18.619 25.934,10.954 18.924,6.765L14.602,11.087C20.619,14.033 24.772,20.221 24.772,27.361Z" style="fill:white;fill-rule:nonzero;"/>
+				<path class="piece p3" d="M34.134,27.361C34.134,37.06 29.082,45.602 21.47,50.492L25.695,54.717C34.335,48.686 40,38.673 40,27.361C40,16.045 34.332,6.03 25.687,0L21.462,4.225C29.078,9.114 34.134,17.658 34.134,27.361Z" style="fill:white;fill-rule:nonzero;"/>
 
 
-	            <path class="p1"  d="M0.843,50.624C0.972,50.656 1.1,50.689 1.23,50.719C1.449,50.77 1.669,50.817 1.89,50.862C1.995,50.883 2.101,50.903 2.207,50.923C2.388,50.957 2.57,50.989 2.753,51.019C2.833,51.032 2.912,51.046 2.992,51.059C3.242,51.098 3.495,51.131 3.748,51.162C3.828,51.172 3.908,51.181 3.989,51.19C4.229,51.217 4.47,51.241 4.712,51.26C4.743,51.262 4.774,51.266 4.805,51.268C5.076,51.289 5.348,51.304 5.621,51.315C5.69,51.318 5.758,51.32 5.827,51.323C6.104,51.333 6.382,51.339 6.661,51.339C6.73,51.339 6.798,51.337 6.867,51.336L6.867,45.37L6.867,41.652C14.71,41.541 21.058,35.23 21.058,27.361C21.058,19.423 14.6,12.964 6.661,12.964C4.259,12.964 1.994,13.559 0,14.604L0,50.392C0.166,50.44 0.332,50.49 0.5,50.535C0.614,50.566 0.728,50.595 0.843,50.624ZM6.866,18.836C11.475,18.946 15.191,22.727 15.191,27.361C15.191,31.996 11.475,35.776 6.866,35.886L6.866,18.836Z" style="fill:white;fill-rule:nonzero;"/>
+				<path class="piece p2" d="M24.772,27.361C24.772,34.519 20.597,40.667 14.555,43.577L18.932,47.954C25.938,43.763 30.639,36.102 30.639,27.362C30.639,18.619 25.934,10.954 18.924,6.765L14.602,11.087C20.619,14.033 24.772,20.221 24.772,27.361Z" style="fill:white;fill-rule:nonzero;"/>
 
-	    </g>
+
+				<path class="p1"  d="M0.843,50.624C0.972,50.656 1.1,50.689 1.23,50.719C1.449,50.77 1.669,50.817 1.89,50.862C1.995,50.883 2.101,50.903 2.207,50.923C2.388,50.957 2.57,50.989 2.753,51.019C2.833,51.032 2.912,51.046 2.992,51.059C3.242,51.098 3.495,51.131 3.748,51.162C3.828,51.172 3.908,51.181 3.989,51.19C4.229,51.217 4.47,51.241 4.712,51.26C4.743,51.262 4.774,51.266 4.805,51.268C5.076,51.289 5.348,51.304 5.621,51.315C5.69,51.318 5.758,51.32 5.827,51.323C6.104,51.333 6.382,51.339 6.661,51.339C6.73,51.339 6.798,51.337 6.867,51.336L6.867,45.37L6.867,41.652C14.71,41.541 21.058,35.23 21.058,27.361C21.058,19.423 14.6,12.964 6.661,12.964C4.259,12.964 1.994,13.559 0,14.604L0,50.392C0.166,50.44 0.332,50.49 0.5,50.535C0.614,50.566 0.728,50.595 0.843,50.624ZM6.866,18.836C11.475,18.946 15.191,22.727 15.191,27.361C15.191,31.996 11.475,35.776 6.866,35.886L6.866,18.836Z" style="fill:white;fill-rule:nonzero;"/>
+
+		</g>
 	</svg>
 
 	<svg id="ppp-logo-text" width="100%" height="100%" viewBox="0 0 164 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
-	    <g transform="matrix(2.45459,0,3.18405e-32,2.45459,-453.926,-387.03)">
-	        <path d="M184.916,165.68L186.164,165.68L186.164,162.62L186.848,162.62C188.312,162.62 188.96,161.468 188.96,160.148C188.96,158.828 188.312,157.676 186.848,157.676L184.916,157.676L184.916,165.68ZM187.676,160.148C187.676,160.952 187.352,161.516 186.728,161.516L186.164,161.516L186.164,158.78L186.728,158.78C187.352,158.78 187.676,159.332 187.676,160.148Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M191.3,165.824C192.74,165.824 193.328,164.372 193.328,162.776C193.328,161.18 192.74,159.74 191.3,159.74C189.86,159.74 189.26,161.18 189.26,162.776C189.26,164.372 189.86,165.824 191.3,165.824ZM191.3,164.828C190.616,164.828 190.436,163.844 190.436,162.776C190.436,161.72 190.616,160.736 191.3,160.736C191.984,160.736 192.164,161.72 192.164,162.776C192.164,163.844 191.984,164.828 191.3,164.828Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M193.784,165.08C194.156,165.548 194.744,165.824 195.536,165.824C196.532,165.824 197.288,165.152 197.288,164.168C197.288,163.004 196.52,162.56 195.872,162.188C195.416,161.924 195.032,161.684 195.032,161.264C195.032,160.916 195.308,160.64 195.716,160.64C196.148,160.64 196.544,160.868 196.772,161.168L197.252,160.412C196.856,159.992 196.304,159.74 195.692,159.74C194.612,159.74 193.976,160.436 193.976,161.3C193.976,162.428 194.72,162.848 195.344,163.22C195.812,163.496 196.22,163.736 196.22,164.204C196.22,164.648 195.884,164.924 195.44,164.924C194.984,164.924 194.576,164.66 194.276,164.3L193.784,165.08Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M199.412,165.824C199.808,165.824 200.108,165.704 200.3,165.512L200.036,164.648C199.952,164.756 199.82,164.828 199.676,164.828C199.424,164.828 199.34,164.636 199.34,164.24L199.34,160.868L200.096,160.868L200.096,159.884L199.34,159.884L199.34,158.3L198.212,158.3L198.212,159.884L197.648,159.884L197.648,160.868L198.212,160.868L198.212,164.444C198.212,165.38 198.56,165.824 199.412,165.824Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M202.844,165.68L204.092,165.68L204.092,162.62L204.776,162.62C206.24,162.62 206.888,161.468 206.888,160.148C206.888,158.828 206.24,157.676 204.776,157.676L202.844,157.676L202.844,165.68ZM205.604,160.148C205.604,160.952 205.28,161.516 204.656,161.516L204.092,161.516L204.092,158.78L204.656,158.78C205.28,158.78 205.604,159.332 205.604,160.148Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M207.656,165.68L208.784,165.68L208.784,161.684C209.012,161.228 209.42,160.844 209.864,160.844C209.936,160.844 210.02,160.856 210.104,160.88L210.104,159.752C209.552,159.752 209.036,160.172 208.784,160.736L208.784,159.884L207.656,159.884L207.656,165.68Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M212.564,165.824C214.004,165.824 214.592,164.372 214.592,162.776C214.592,161.18 214.004,159.74 212.564,159.74C211.124,159.74 210.524,161.18 210.524,162.776C210.524,164.372 211.124,165.824 212.564,165.824ZM212.564,164.828C211.88,164.828 211.7,163.844 211.7,162.776C211.7,161.72 211.88,160.736 212.564,160.736C213.248,160.736 213.428,161.72 213.428,162.776C213.428,163.844 213.248,164.828 212.564,164.828Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M220.448,165.68L221.576,165.68L221.576,161.036C221.576,160.1 221.108,159.74 220.412,159.74C219.848,159.74 219.272,160.208 219.044,160.712C218.972,160.064 218.528,159.74 217.916,159.74C217.364,159.74 216.8,160.208 216.584,160.664L216.584,159.884L215.456,159.884L215.456,165.68L216.584,165.68L216.584,161.576C216.728,161.18 217.064,160.736 217.46,160.736C217.796,160.736 217.952,160.964 217.952,161.408L217.952,165.68L219.08,165.68L219.08,161.576C219.224,161.18 219.56,160.736 219.956,160.736C220.28,160.736 220.448,160.94 220.448,161.408L220.448,165.68Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M224.468,165.824C225.908,165.824 226.496,164.372 226.496,162.776C226.496,161.18 225.908,159.74 224.468,159.74C223.028,159.74 222.428,161.18 222.428,162.776C222.428,164.372 223.028,165.824 224.468,165.824ZM224.468,164.828C223.784,164.828 223.604,163.844 223.604,162.776C223.604,161.72 223.784,160.736 224.468,160.736C225.152,160.736 225.332,161.72 225.332,162.776C225.332,163.844 225.152,164.828 224.468,164.828Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M228.74,165.824C229.136,165.824 229.436,165.704 229.628,165.512L229.364,164.648C229.28,164.756 229.148,164.828 229.004,164.828C228.752,164.828 228.668,164.636 228.668,164.24L228.668,160.868L229.424,160.868L229.424,159.884L228.668,159.884L228.668,158.3L227.54,158.3L227.54,159.884L226.976,159.884L226.976,160.868L227.54,160.868L227.54,164.444C227.54,165.38 227.888,165.824 228.74,165.824Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M229.976,162.776C229.976,164.54 230.708,165.824 232.16,165.824C232.796,165.824 233.396,165.476 233.816,164.888L233.228,164.276C232.964,164.672 232.604,164.9 232.268,164.9C231.476,164.9 231.092,164.168 231.08,163.148L233.972,163.148L233.972,162.752C233.972,161.072 233.408,159.74 232.016,159.74C230.636,159.74 229.976,161.096 229.976,162.776ZM231.98,160.664C232.7,160.664 232.868,161.588 232.868,162.344L231.08,162.344C231.08,161.648 231.26,160.664 231.98,160.664Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M234.776,165.68L235.904,165.68L235.904,161.684C236.132,161.228 236.54,160.844 236.984,160.844C237.056,160.844 237.14,160.856 237.224,160.88L237.224,159.752C236.672,159.752 236.156,160.172 235.904,160.736L235.904,159.884L234.776,159.884L234.776,165.68Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M239.84,165.68L241.088,165.68L241.088,162.62L241.772,162.62C243.236,162.62 243.884,161.468 243.884,160.148C243.884,158.828 243.236,157.676 241.772,157.676L239.84,157.676L239.84,165.68ZM242.6,160.148C242.6,160.952 242.276,161.516 241.652,161.516L241.088,161.516L241.088,158.78L241.652,158.78C242.276,158.78 242.6,159.332 242.6,160.148Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M244.652,165.68L245.78,165.68L245.78,161.684C246.008,161.228 246.416,160.844 246.86,160.844C246.932,160.844 247.016,160.856 247.1,160.88L247.1,159.752C246.548,159.752 246.032,160.172 245.78,160.736L245.78,159.884L244.652,159.884L244.652,165.68Z" style="fill:white;fill-rule:nonzero;"/>
-	        <path d="M249.56,165.824C251,165.824 251.588,164.372 251.588,162.776C251.588,161.18 251,159.74 249.56,159.74C248.12,159.74 247.52,161.18 247.52,162.776C247.52,164.372 248.12,165.824 249.56,165.824ZM249.56,164.828C248.876,164.828 248.696,163.844 248.696,162.776C248.696,161.72 248.876,160.736 249.56,160.736C250.244,160.736 250.424,161.72 250.424,162.776C250.424,163.844 250.244,164.828 249.56,164.828Z" style="fill:white;fill-rule:nonzero;"/>
-	    </g>
+		<g transform="matrix(2.45459,0,3.18405e-32,2.45459,-453.926,-387.03)">
+			<path d="M184.916,165.68L186.164,165.68L186.164,162.62L186.848,162.62C188.312,162.62 188.96,161.468 188.96,160.148C188.96,158.828 188.312,157.676 186.848,157.676L184.916,157.676L184.916,165.68ZM187.676,160.148C187.676,160.952 187.352,161.516 186.728,161.516L186.164,161.516L186.164,158.78L186.728,158.78C187.352,158.78 187.676,159.332 187.676,160.148Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M191.3,165.824C192.74,165.824 193.328,164.372 193.328,162.776C193.328,161.18 192.74,159.74 191.3,159.74C189.86,159.74 189.26,161.18 189.26,162.776C189.26,164.372 189.86,165.824 191.3,165.824ZM191.3,164.828C190.616,164.828 190.436,163.844 190.436,162.776C190.436,161.72 190.616,160.736 191.3,160.736C191.984,160.736 192.164,161.72 192.164,162.776C192.164,163.844 191.984,164.828 191.3,164.828Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M193.784,165.08C194.156,165.548 194.744,165.824 195.536,165.824C196.532,165.824 197.288,165.152 197.288,164.168C197.288,163.004 196.52,162.56 195.872,162.188C195.416,161.924 195.032,161.684 195.032,161.264C195.032,160.916 195.308,160.64 195.716,160.64C196.148,160.64 196.544,160.868 196.772,161.168L197.252,160.412C196.856,159.992 196.304,159.74 195.692,159.74C194.612,159.74 193.976,160.436 193.976,161.3C193.976,162.428 194.72,162.848 195.344,163.22C195.812,163.496 196.22,163.736 196.22,164.204C196.22,164.648 195.884,164.924 195.44,164.924C194.984,164.924 194.576,164.66 194.276,164.3L193.784,165.08Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M199.412,165.824C199.808,165.824 200.108,165.704 200.3,165.512L200.036,164.648C199.952,164.756 199.82,164.828 199.676,164.828C199.424,164.828 199.34,164.636 199.34,164.24L199.34,160.868L200.096,160.868L200.096,159.884L199.34,159.884L199.34,158.3L198.212,158.3L198.212,159.884L197.648,159.884L197.648,160.868L198.212,160.868L198.212,164.444C198.212,165.38 198.56,165.824 199.412,165.824Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M202.844,165.68L204.092,165.68L204.092,162.62L204.776,162.62C206.24,162.62 206.888,161.468 206.888,160.148C206.888,158.828 206.24,157.676 204.776,157.676L202.844,157.676L202.844,165.68ZM205.604,160.148C205.604,160.952 205.28,161.516 204.656,161.516L204.092,161.516L204.092,158.78L204.656,158.78C205.28,158.78 205.604,159.332 205.604,160.148Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M207.656,165.68L208.784,165.68L208.784,161.684C209.012,161.228 209.42,160.844 209.864,160.844C209.936,160.844 210.02,160.856 210.104,160.88L210.104,159.752C209.552,159.752 209.036,160.172 208.784,160.736L208.784,159.884L207.656,159.884L207.656,165.68Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M212.564,165.824C214.004,165.824 214.592,164.372 214.592,162.776C214.592,161.18 214.004,159.74 212.564,159.74C211.124,159.74 210.524,161.18 210.524,162.776C210.524,164.372 211.124,165.824 212.564,165.824ZM212.564,164.828C211.88,164.828 211.7,163.844 211.7,162.776C211.7,161.72 211.88,160.736 212.564,160.736C213.248,160.736 213.428,161.72 213.428,162.776C213.428,163.844 213.248,164.828 212.564,164.828Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M220.448,165.68L221.576,165.68L221.576,161.036C221.576,160.1 221.108,159.74 220.412,159.74C219.848,159.74 219.272,160.208 219.044,160.712C218.972,160.064 218.528,159.74 217.916,159.74C217.364,159.74 216.8,160.208 216.584,160.664L216.584,159.884L215.456,159.884L215.456,165.68L216.584,165.68L216.584,161.576C216.728,161.18 217.064,160.736 217.46,160.736C217.796,160.736 217.952,160.964 217.952,161.408L217.952,165.68L219.08,165.68L219.08,161.576C219.224,161.18 219.56,160.736 219.956,160.736C220.28,160.736 220.448,160.94 220.448,161.408L220.448,165.68Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M224.468,165.824C225.908,165.824 226.496,164.372 226.496,162.776C226.496,161.18 225.908,159.74 224.468,159.74C223.028,159.74 222.428,161.18 222.428,162.776C222.428,164.372 223.028,165.824 224.468,165.824ZM224.468,164.828C223.784,164.828 223.604,163.844 223.604,162.776C223.604,161.72 223.784,160.736 224.468,160.736C225.152,160.736 225.332,161.72 225.332,162.776C225.332,163.844 225.152,164.828 224.468,164.828Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M228.74,165.824C229.136,165.824 229.436,165.704 229.628,165.512L229.364,164.648C229.28,164.756 229.148,164.828 229.004,164.828C228.752,164.828 228.668,164.636 228.668,164.24L228.668,160.868L229.424,160.868L229.424,159.884L228.668,159.884L228.668,158.3L227.54,158.3L227.54,159.884L226.976,159.884L226.976,160.868L227.54,160.868L227.54,164.444C227.54,165.38 227.888,165.824 228.74,165.824Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M229.976,162.776C229.976,164.54 230.708,165.824 232.16,165.824C232.796,165.824 233.396,165.476 233.816,164.888L233.228,164.276C232.964,164.672 232.604,164.9 232.268,164.9C231.476,164.9 231.092,164.168 231.08,163.148L233.972,163.148L233.972,162.752C233.972,161.072 233.408,159.74 232.016,159.74C230.636,159.74 229.976,161.096 229.976,162.776ZM231.98,160.664C232.7,160.664 232.868,161.588 232.868,162.344L231.08,162.344C231.08,161.648 231.26,160.664 231.98,160.664Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M234.776,165.68L235.904,165.68L235.904,161.684C236.132,161.228 236.54,160.844 236.984,160.844C237.056,160.844 237.14,160.856 237.224,160.88L237.224,159.752C236.672,159.752 236.156,160.172 235.904,160.736L235.904,159.884L234.776,159.884L234.776,165.68Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M239.84,165.68L241.088,165.68L241.088,162.62L241.772,162.62C243.236,162.62 243.884,161.468 243.884,160.148C243.884,158.828 243.236,157.676 241.772,157.676L239.84,157.676L239.84,165.68ZM242.6,160.148C242.6,160.952 242.276,161.516 241.652,161.516L241.088,161.516L241.088,158.78L241.652,158.78C242.276,158.78 242.6,159.332 242.6,160.148Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M244.652,165.68L245.78,165.68L245.78,161.684C246.008,161.228 246.416,160.844 246.86,160.844C246.932,160.844 247.016,160.856 247.1,160.88L247.1,159.752C246.548,159.752 246.032,160.172 245.78,160.736L245.78,159.884L244.652,159.884L244.652,165.68Z" style="fill:white;fill-rule:nonzero;"/>
+			<path d="M249.56,165.824C251,165.824 251.588,164.372 251.588,162.776C251.588,161.18 251,159.74 249.56,159.74C248.12,159.74 247.52,161.18 247.52,162.776C247.52,164.372 248.12,165.824 249.56,165.824ZM249.56,164.828C248.876,164.828 248.696,163.844 248.696,162.776C248.696,161.72 248.876,160.736 249.56,160.736C250.244,160.736 250.424,161.72 250.424,162.776C250.424,163.844 250.244,164.828 249.56,164.828Z" style="fill:white;fill-rule:nonzero;"/>
+		</g>
 	</svg>
 
 	<?php
@@ -489,7 +501,12 @@ function ppp_enqueue_scripts() {
 	wp_register_script( 'ppp-js', get_stylesheet_directory_uri() . '/js/post-promoter-pro.min.js', array( 'jquery' ), PPP_THEME_VERSION, true );
 	wp_enqueue_script( 'ppp-js' );
 
+	wp_register_script( 'font-awesome', 'https://use.fontawesome.com/eec832792c.js', array(), PPP_THEME_VERSION );
+	wp_enqueue_script( 'font-awesome' );
+
 	wp_enqueue_script( 'jquery-ui-tabs' );
+
+	wp_enqueue_style( 'dashicons' );
 
 	// load jQuery UI + tabs for account page
 	if ( is_page( 'account' ) ) {
@@ -513,21 +530,334 @@ function ppp_remove_comments_on_attachments( $open, $post_id ) {
 	$post = get_post( $post_id );
 
 	if ( $post->post_type == 'attachment' ) {
-        return false;
-    }
+		return false;
+	}
 
 	return $open;
 
 }
 add_filter( 'comments_open', 'ppp_remove_comments_on_attachments', 10 , 2 );
 
+/**
+ * Stripe uses it's own credit card form because the card details are tokenized.
+ *
+ * We don't want the name attributes to be present on the fields in order to prevent them from getting posted to the server
+ *
+ * @access      public
+ * @since       1.7.5
+ * @return      void
+ */
+function ppp_stripe_credit_card_form( $echo = true ) {
+
+	global $edd_options;
+
+	ob_start(); ?>
+
+	<?php if ( ! wp_script_is ( 'stripe-js' ) ) : ?>
+		<?php edd_stripe_js( true ); ?>
+	<?php endif; ?>
+
+	<?php do_action( 'edd_before_cc_fields' ); ?>
+
+	<fieldset id="edd_cc_fields" class="edd-do-validate">
+		<legend><?php _e( 'Credit Card Info', 'edds' ); ?></legend>
+		<?php if( is_ssl() ) : ?>
+			<div id="edd_secure_site_wrapper">
+				<span class="dashicons dashicons-lock"></span>
+				<span>This is a secure checkout form</span>
+			</div>
+		<?php endif; ?>
+		<p id="edd-card-number-wrap">
+			<input type="tel" pattern="[0-9]{13,16}" autocomplete="off" <?php if ( isset( $edd_options['stripe_js_fallback'] ) ) { echo 'name="card_number" '; } ?>id="card_number" class="card-number edd-input required" placeholder="<?php _e( 'Card number', 'edds' ); ?>" />
+		</p>
+		<p id="edd-card-cvc-wrap">
+			<input type="tel" pattern="[0-9]{3,4}" autocomplete="off" <?php if ( isset( $edd_options['stripe_js_fallback'] ) ) { echo 'name="card_cvc" '; } ?>id="card_cvc" class="card-cvc edd-input required" placeholder="<?php _e( 'Security code', 'edds' ); ?>" />
+		</p>
+		<p id="edd-card-name-wrap">
+			<input type="text" autocomplete="off" <?php if ( isset( $edd_options['stripe_js_fallback'] ) ) { echo 'name="card_name" '; } ?>id="card_name" class="card-name edd-input required" placeholder="<?php _e( 'Card name', 'edds' ); ?>" />
+		</p>
+		<?php do_action( 'edd_before_cc_expiration' ); ?>
+		<p class="card-expiration">
+			<label for="card_exp_month" class="edd-label">
+				Card Expiration
+			</label>
+			<select <?php if ( isset( $edd_options['stripe_js_fallback'] ) ) { echo 'name="card_exp_month" '; } ?>id="card_exp_month" class="card-expiry-month edd-select edd-select-small required">
+				<?php for( $i = 1; $i <= 12; $i++ ) { echo '<option value="' . $i . '">' . sprintf ('%02d', $i ) . '</option>'; } ?>
+			</select>
+			<span class="exp-divider"> / </span>
+			<select <?php if ( isset( $edd_options['stripe_js_fallback'] ) ) { echo 'name="card_exp_year" '; } ?>id="card_exp_year" class="card-expiry-year edd-select edd-select-small required">
+				<?php for( $i = date('Y'); $i <= date('Y') + 30; $i++ ) { echo '<option value="' . $i . '">' . substr( $i, 2 ) . '</option>'; } ?>
+			</select>
+		</p>
+		<?php do_action( 'edd_after_cc_expiration' ); ?>
+
+	</fieldset>
+	<?php
+	do_action( 'edd_after_cc_fields' );
+
+	$form = ob_get_clean();
+
+	if ( false !== $echo ) {
+		echo $form;
+	}
+
+	return $form;
+}
+remove_action( 'edd_stripe_cc_form', 'edds_credit_card_form' );
+add_action( 'edd_stripe_cc_form', 'ppp_stripe_credit_card_form' );
+
+function ppp_user_info_fields() {
+
+	$customer = EDD()->session->get( 'customer' );
+	$customer = wp_parse_args( $customer, array( 'first_name' => '', 'last_name' => '', 'email' => '' ) );
+
+	if( is_user_logged_in() ) {
+		$user_data = get_userdata( get_current_user_id() );
+		foreach( $customer as $key => $field ) {
+
+			if ( 'email' == $key && empty( $field ) ) {
+				$customer[ $key ] = $user_data->user_email;
+			} elseif ( empty( $field ) ) {
+				$customer[ $key ] = $user_data->$key;
+			}
+
+		}
+	}
+
+	$customer = array_map( 'sanitize_text_field', $customer );
+	?>
+	<fieldset id="edd_checkout_user_info">
+		<legend><?php echo apply_filters( 'edd_checkout_personal_info_text', __( 'Personal Info', 'easy-digital-downloads' ) ); ?></legend>
+		<?php do_action( 'edd_purchase_form_before_email' ); ?>
+		<p id="edd-email-wrap">
+			<input class="edd-input required" type="email" name="edd_email" placeholder="<?php _e( 'Email address', 'easy-digital-downloads' ); ?>" id="edd-email" value="<?php echo esc_attr( $customer['email'] ); ?>"/>
+		</p>
+		<?php do_action( 'edd_purchase_form_after_email' ); ?>
+		<p id="edd-first-name-wrap">
+			<input class="edd-input required" type="text" name="edd_first" placeholder="<?php _e( 'First name', 'easy-digital-downloads' ); ?>" id="edd-first" value="<?php echo esc_attr( $customer['first_name'] ); ?>"<?php if( edd_field_is_required( 'edd_first' ) ) {  echo ' required '; } ?>/>
+		</p>
+		<p id="edd-last-name-wrap">
+			<input class="edd-input<?php if( edd_field_is_required( 'edd_last' ) ) { echo ' required'; } ?>" type="text" name="edd_last" id="edd-last" placeholder="<?php _e( 'Last name', 'easy-digital-downloads' ); ?>" value="<?php echo esc_attr( $customer['last_name'] ); ?>"<?php if( edd_field_is_required( 'edd_last' ) ) {  echo ' required '; } ?>/>
+		</p>
+		<?php do_action( 'edd_purchase_form_user_info' ); ?>
+		<?php do_action( 'edd_purchase_form_user_info_fields' ); ?>
+	</fieldset>
+	<?php
+}
+remove_action( 'edd_purchase_form_after_user_info', 'edd_user_info_fields' );
+remove_action( 'edd_register_fields_before', 'edd_user_info_fields' );
+add_action( 'edd_purchase_form_after_user_info', 'ppp_user_info_fields' );
+add_action( 'edd_register_fields_before', 'ppp_user_info_fields' );
+
+function ppp_default_cc_address_fields() {
+	$logged_in = is_user_logged_in();
+	$customer  = EDD()->session->get( 'customer' );
+	$customer  = wp_parse_args( $customer, array( 'address' => array(
+		'line1'   => '',
+		'line2'   => '',
+		'city'    => '',
+		'zip'     => '',
+		'state'   => '',
+		'country' => ''
+	) ) );
+
+	$customer['address'] = array_map( 'sanitize_text_field', $customer['address'] );
+
+	if( $logged_in ) {
+
+		$user_address = get_user_meta( get_current_user_id(), '_edd_user_address', true );
+
+		foreach( $customer['address'] as $key => $field ) {
+
+			if ( empty( $field ) && ! empty( $user_address[ $key ] ) ) {
+				$customer['address'][ $key ] = $user_address[ $key ];
+			} else {
+				$customer['address'][ $key ] = '';
+			}
+
+		}
+
+	}
+
+	ob_start(); ?>
+	<fieldset id="edd_cc_address" class="cc-address">
+		<legend><?php _e( 'Billing Details', 'easy-digital-downloads' ); ?></legend>
+		<?php do_action( 'edd_cc_billing_top' ); ?>
+		<p id="edd-card-address-wrap">
+			<input type="text" id="card_address" name="card_address" class="card-address edd-input<?php if( edd_field_is_required( 'card_address' ) ) { echo ' required'; } ?>" placeholder="<?php _e( 'Address line 1', 'easy-digital-downloads' ); ?>" value="<?php echo $customer['address']['line1']; ?>"<?php if( edd_field_is_required( 'card_address' ) ) {  echo ' required '; } ?>/>
+		</p>
+		<p id="edd-card-address-2-wrap">
+			<input type="text" id="card_address_2" name="card_address_2" class="card-address-2 edd-input<?php if( edd_field_is_required( 'card_address_2' ) ) { echo ' required'; } ?>" placeholder="<?php _e( 'Address line 2', 'easy-digital-downloads' ); ?>" value="<?php echo $customer['address']['line2']; ?>"<?php if( edd_field_is_required( 'card_address_2' ) ) {  echo ' required '; } ?>/>
+		</p>
+		<p id="edd-card-city-wrap">
+			<input type="text" id="card_city" name="card_city" class="card-city edd-input<?php if( edd_field_is_required( 'card_city' ) ) { echo ' required'; } ?>" placeholder="<?php _e( 'City', 'easy-digital-downloads' ); ?>" value="<?php echo $customer['address']['city']; ?>"<?php if( edd_field_is_required( 'card_city' ) ) {  echo ' required '; } ?>/>
+		</p>
+		<p id="edd-card-zip-wrap">
+			<input type="text" size="4" name="card_zip" class="card-zip edd-input<?php if( edd_field_is_required( 'card_zip' ) ) { echo ' required'; } ?>" placeholder="<?php _e( 'Zip / Postal Code', 'easy-digital-downloads' ); ?>" value="<?php echo $customer['address']['zip']; ?>"<?php if( edd_field_is_required( 'card_zip' ) ) {  echo ' required '; } ?>/>
+		</p>
+		<p id="edd-card-country-wrap">
+			<label for="billing_country" class="edd-label">
+				<?php _e( 'Billing Country', 'easy-digital-downloads' ); ?>
+				<?php if( edd_field_is_required( 'billing_country' ) ) { ?>
+					<span class="edd-required-indicator">*</span>
+				<?php } ?>
+			</label>
+			<select name="billing_country" id="billing_country" class="billing_country edd-select<?php if( edd_field_is_required( 'billing_country' ) ) { echo ' required'; } ?>"<?php if( edd_field_is_required( 'billing_country' ) ) {  echo ' required '; } ?>>
+				<?php
+
+				$selected_country = edd_get_shop_country();
+
+				if( ! empty( $customer['address']['country'] ) && '*' !== $customer['address']['country'] ) {
+					$selected_country = $customer['address']['country'];
+				}
+
+				$countries = edd_get_country_list();
+				foreach( $countries as $country_code => $country ) {
+				  echo '<option value="' . esc_attr( $country_code ) . '"' . selected( $country_code, $selected_country, false ) . '>' . $country . '</option>';
+				}
+				?>
+			</select>
+		</p>
+		<p id="edd-card-state-wrap">
+			<label for="card_state" class="edd-label">
+				<?php _e( 'Billing State / Province', 'easy-digital-downloads' ); ?>
+				<?php if( edd_field_is_required( 'card_state' ) ) { ?>
+					<span class="edd-required-indicator">*</span>
+				<?php } ?>
+			</label>
+			<?php
+			$selected_state = edd_get_shop_state();
+			$states         = edd_get_shop_states( $selected_country );
+
+			if( ! empty( $customer['address']['state'] ) ) {
+				$selected_state = $customer['address']['state'];
+			}
+
+			if( ! empty( $states ) ) : ?>
+			<select name="card_state" id="card_state" class="card_state edd-select<?php if( edd_field_is_required( 'card_state' ) ) { echo ' required'; } ?>">
+				<?php
+					foreach( $states as $state_code => $state ) {
+						echo '<option value="' . $state_code . '"' . selected( $state_code, $selected_state, false ) . '>' . $state . '</option>';
+					}
+				?>
+			</select>
+			<?php else : ?>
+			<?php $customer_state = ! empty( $customer['address']['state'] ) ? $customer['address']['state'] : ''; ?>
+			<input type="text" size="6" name="card_state" id="card_state" class="card_state edd-input" value="<?php echo esc_attr( $customer_state ); ?>" placeholder="<?php _e( 'State / Province', 'easy-digital-downloads' ); ?>"/>
+			<?php endif; ?>
+		</p>
+		<?php do_action( 'edd_cc_billing_bottom' ); ?>
+	</fieldset>
+	<?php
+	echo ob_get_clean();
+}
+remove_action( 'edd_after_cc_fields', 'edd_default_cc_address_fields' );
+add_action( 'edd_after_cc_fields', 'ppp_default_cc_address_fields' );
+
+function ppp_payment_mode_select() {
+	$gateways = edd_get_enabled_payment_gateways( true );
+	$page_URL = edd_get_current_page_url();
+	do_action('edd_payment_mode_top'); ?>
+	<?php if( edd_is_ajax_disabled() ) { ?>
+	<form id="edd_payment_mode" action="<?php echo $page_URL; ?>" method="GET">
+	<?php } ?>
+		<fieldset id="edd_payment_mode_select">
+			<legend>Payment Method</legend>
+			<?php do_action( 'edd_payment_mode_before_gateways_wrap' ); ?>
+			<div id="edd-payment-mode-wrap">
+				<?php
+
+				do_action( 'edd_payment_mode_before_gateways' );
+				?>
+				<label for="edd-gateway-paypalexpress" class="edd-gateway-option edd-gateway-option-selected" id="edd-gateway-option-paypalexpress">
+					<span class="payment-type"><input type="radio" name="payment-mode" class="edd-gateway" id="edd-gateway-paypalexpress" value="paypalexpress" checked="checked" />PayPal <i class="fa fa-cc-paypal" aria-hidden="true"></i></span>
+					<span class="card-info">Pay quickly and securly with PayPal</span>
+				</label>
+				<label for="edd-gateway-stripe" class="edd-gateway-option" id="edd-gateway-option-stripe">
+					<span class="payment-type"><input type="radio" name="payment-mode" class="edd-gateway" id="edd-gateway-stripe" value="stripe" />Credit Card <i class="fa fa-credit-card-alt" aria-hidden="true"></i></span>
+					<span class="card-info">Use your Visa, Mastercard, AMEX, or Discover</span>
+				</label>
+				<?php
+				do_action( 'edd_payment_mode_after_gateways' );
+
+				?>
+			</div>
+			<?php do_action( 'edd_payment_mode_after_gateways_wrap' ); ?>
+		</fieldset>
+		<fieldset id="edd_payment_mode_submit" class="edd-no-js">
+			<p id="edd-next-submit-wrap">
+				<?php echo edd_checkout_button_next(); ?>
+			</p>
+		</fieldset>
+	<?php if( edd_is_ajax_disabled() ) { ?>
+	</form>
+	<?php } ?>
+	<div id="edd_purchase_form_wrap"></div><!-- the checkout fields are loaded into this-->
+	<?php do_action('edd_payment_mode_bottom');
+}
+remove_action( 'edd_payment_mode_select', 'edd_payment_mode_select' );
+add_action( 'edd_payment_mode_select', 'ppp_payment_mode_select' );
+
+// Remove the Renewal and Discount Code fields
+remove_action( 'edd_checkout_form_top', 'edd_discount_field', -1 );
+remove_action( 'edd_before_purchase_form', 'edd_sl_renewal_form', -1 );
+
+function ppp_empty_cart_on_add() {
+	edd_empty_cart();
+}
+add_action( 'edd_add_to_cart', 'ppp_empty_cart_on_add', 1 );
+
+add_filter( 'edd_recurring_show_terms_on_cart_item', '__return_false' );
+
+// Add a custom login logo
+function ppp_site_login_logo() { ?>
+	<style type="text/css">
+		body{
+			background: rgba(0,0,0,0) linear-gradient(70deg, #3f1258, #0c023b) repeat scroll 0 0 !important;
+		}
+		#nav a {
+			color: #FFF;
+		}
+		body.login div#login h1 a {
+			background-image: url("<?php echo get_stylesheet_directory_uri(); ?>/images/logo-ppp-2.svg");
+			padding-bottom: 30px;
+				background-size: 600px 100px;
+				background-position: center top;
+				width: 600px;
+				margin-left: -140px;
+		}
+		#login form {
+			background: rgba(255,255,255,.75) !important;
+		}
+	</style>
+<?php }
+add_action( 'login_enqueue_scripts', 'ppp_site_login_logo' );
+// Remove our old hooks here
+remove_action( 'login_enqueue_scripts', 'ppp_login_logo' );
+
+
+// Variable pricing switcher
+function ppp_ajax_change_price_id() {
+	$download_id = $_POST['download_id'];
+	$price_id    = $_POST['price_id'];
+
+	// Remove cart contents
+	EDD()->session->set( 'edd_cart', NULL );
+
+	edd_add_to_cart( $download_id, array( 'price_id' => $price_id ) );
+
+	echo json_encode( array( 'url' => edd_get_checkout_uri() ) );
+	die();
+}
+add_action( 'wp_ajax_ppp_switch_price', 'ppp_ajax_change_price_id' );
+add_action( 'wp_ajax_nopriv_ppp_switch_price', 'ppp_ajax_change_price_id' );
 
 /**
  * Adds a CSS class to Ninja Forms
  */
 function ppp_ninja_forms_form_wrap_class( $wrap_class, $form_id ) {
 
-    $wrap_class = ' box';
-    return $wrap_class;
+	$wrap_class = ' box';
+	return $wrap_class;
 }
 add_filter( 'ninja_forms_form_wrap_class', 'ppp_ninja_forms_form_wrap_class', 10, 2 );
