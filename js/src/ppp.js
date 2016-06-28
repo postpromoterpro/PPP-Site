@@ -65,4 +65,29 @@ jQuery(document).ready(function($) {
    // the event now, to handle the hash the page may have loaded with.
    $(window).trigger( 'hashchange' );
 
+   $('#variable-price-switcher').on('change', function() {
+      var download_id = $(this).data('download-id');
+      var price_id    = $(this).val();
+
+      $.ajax({
+        type: "POST",
+        data: {
+          download_id: download_id,
+          price_id: price_id,
+          action: 'ppp_switch_price',
+        },
+        dataType: "json",
+        url: edd_global_vars.ajaxurl,
+        xhrFields: {
+          withCredentials: true
+        },
+        success: function (response) {
+          console.log(response.url);
+          window.location = response.url;
+        }
+      }).fail(function (data) {});
+
+      return false;
+   });
+
 });

@@ -1,0 +1,161 @@
+#edd_checkout_cart a,
+.edd_cart_discount_row a {
+	border: none;
+}
+
+#edd_checkout_cart tr:first-child td:first-child {
+	border-right: none;
+}
+
+.edd_cart_item_details span { display: block; }
+
+#variable-price-switcher { width: 100%; }
+#variable-price-switcher, .edd-select {
+	border: 1px solid #787878;
+	height: 32px;
+}
+
+.ppp-checkout-item-features {
+	display: block;
+}
+
+.ppp-checkout-item-features > .fa-check-circle {
+	color: #3f1258;
+}
+
+.edd_cart_remove_item_btn { font-size: .75em; }
+
+.edd_discount { font-size: .95em; }
+.edd_discount_rate, .edd_discount_remove { text-transform: uppercase; }
+.edd_discount_remove { float: right; color: rgba(255,255,255,0.7); }
+
+.edd-alert-discount {
+	color: rgba(255,255,255,0.7);
+	background-color: #3f1258;
+	border-color: #bce8f1;
+}
+
+#edd_checkout_form_wrap select.edd-select {
+	border: 1px solid #0c023b;
+	border-radius: 4px;
+}
+
+.edd-gateway-option {
+	width: 44%;
+	display: inline-block;
+}
+
+.edd-gateway-option i {
+	color: #3f1258;
+}
+
+.edd-gateway-option span {
+	display: block;
+}
+
+.payment-type { font-size: 1.25em; }
+
+.card-info { font-size: .75em; }
+
+#edd_checkout_user_info p,
+#edd_cc_address p,
+#edd_cc_fields p {
+	width: 48%;
+	display: inline-block;
+}
+
+#edd-email-wrap { width: 97% !important; }
+
+#card_state,
+#billing_country {
+	width: 100%;
+}
+
+#edd_secure_site_wrapper span {
+	color: #339933;
+}
+
+#edd_final_total_wrap {
+	text-align: center;
+	font-size: 1.5em;
+	color: #43883C !important;
+}
+
+#edd_checkout_form_wrap select.edd-select {
+	border: 1px solid #e4e4e4;
+	border-radius: 4px;
+}
+
+#edd-purchase-button {
+	display: block;
+	margin: 0 auto;
+}
+
+/** MailChimip Form */
+.mc-field-group input[type="email"] {
+	width: 75%;
+}
+
+/** Subpage styles */
+.child_page-container .post_content h4 {
+	font-size: 1.25em;
+	margin-bottom: 0px;
+}
+
+.child_page-container .post_content a {
+	text-decoration: none;
+}
+
+.child_page-container .post_excerpt {
+	font-size: .81em;
+}
+
+
+#mc-embedded-subscribe { margin-top: -5px; }
+
+/** Mobiles!!!! */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	select,
+	textarea,
+	input {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 719px) {
+	#edd_checkout_wrap {
+		width: 100%;
+	}
+
+	.ppp-checkout-item-features {
+		font-size: .9em;
+	}
+
+	#edd_checkout_form_wrap input.edd-input {
+		width: 100%;
+		line-height: 32px;
+		font-size: 16px;
+	}
+
+	#edd_checkout_user_info p, #edd_cc_address p, #edd_cc_fields p {
+		width: 100%;
+		display: block;
+	}
+
+	.edd_cart_item td {
+		width: 100%;
+		display: block;
+	}
+
+	#edd_checkout_cart tr:first-child td:first-child {
+		border-right: 2px solid #f5f5f5;
+		border-bottom: none;
+	}
+
+	.edd-gateway-option {
+		margin-right: 0;
+		display: block;
+		width: 100%;
+	}
+
+}
