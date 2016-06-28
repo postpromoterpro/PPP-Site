@@ -506,6 +506,8 @@ function ppp_enqueue_scripts() {
 
 	wp_enqueue_script( 'jquery-ui-tabs' );
 
+	wp_enqueue_style( 'dashicons' );
+
 	// load jQuery UI + tabs for account page
 	if ( is_page( 'account' ) ) {
 		wp_enqueue_script( 'jquery-ui-core' );
