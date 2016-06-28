@@ -69,6 +69,7 @@ global $post; ?>
 				</tr>
 			<?php endforeach; ?>
 		<?php endif; ?>
+
 		<?php do_action( 'edd_cart_items_middle' ); ?>
 		<!-- Show any cart fees, both positive and negative fees -->
 		<?php if( edd_cart_has_fees() ) : ?>
@@ -127,6 +128,9 @@ global $post; ?>
 
 	</tfoot>
 </table>
+
+<!-- Needs this for the stripe tokens -->
+<div style="display: none;" class="edd_cart_total"><span class="edd_cart_amount" data-subtotal="<?php echo edd_get_cart_subtotal(); ?>" data-total="<?php echo edd_get_cart_total(); ?>"></span></div>
 
 <div class="edd_cart_footer_row edd_cart_discount_row" <?php if( ! edd_cart_has_discounts() )  echo ' style="display:none;"'; ?>>
 	<?php do_action( 'edd_checkout_table_discount_first' ); ?>
