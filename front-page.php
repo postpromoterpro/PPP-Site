@@ -124,7 +124,7 @@ get_header(); ?>
 			<div class="col-xs-12 col-sm-4 first-xs">
 				<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/svgs/calendar.svg'; ?>" />
 				<h2>Easily see scheduled shares</h2>
-				<p>Quickly view and manage all items you have scheduled to share. You can easiliy delete an item or choose to share it now if you wish.</p>
+				<p>Quickly view and manage all items you have scheduled to share. You can easily delete an item or choose to share it now if you wish.</p>
 			</div>
 
 		</div>
