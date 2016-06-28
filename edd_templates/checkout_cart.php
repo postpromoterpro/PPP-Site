@@ -35,8 +35,8 @@ global $post; ?>
 							?>
 							<span>
 							<select data-download-id="<?php echo $item['id']; ?>" id="variable-price-switcher">
-								<?php foreach ( $item_prices as $key => $price ) : ?>
-									<option <?php selected( $key, $price_id, true ); ?> value="<?php echo $key; ?>"><?php echo $price['description']; ?></option>
+								<?php foreach ( $item_prices as $price_key => $price ) : ?>
+									<option <?php selected( $price_key, $price_id, true ); ?> value="<?php echo $price_key; ?>"><?php echo $price['description']; ?></option>
 								<?php endforeach; ?>
 							</select>
 							</span>
