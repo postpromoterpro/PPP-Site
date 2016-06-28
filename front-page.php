@@ -103,7 +103,7 @@ get_header(); ?>
 				<img class="icon" src="<?php echo get_stylesheet_directory_uri() . '/svgs/time-2.svg'; ?>" />
 				<h2>Time is precious. </br>Have some back.</h2>
 
-				<p class="mb-xs-0">No 3rd party services, or additional apps are needed. Schedule sharing to all your social networks right from within your WordPress admin. Since it's built in, Post Promtoer Pro just becomes part of your editorial flow.</p>
+				<p class="mb-xs-0">No 3rd party services, or additional apps are needed. Schedule sharing to all your social networks right from within your WordPress admin. Since its built in, Post Promoter Pro just becomes part of your editorial flow.</p>
 			</div>
 
 		</div>
