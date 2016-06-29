@@ -188,7 +188,7 @@ get_header(); ?>
 			<div class="gallery-cell ph-sm-8">
 				<?php echo get_avatar('dgriffiths@section214.com', '96' ); ?>
 				<blockquote>
-					<p>The difference Post Promoter Pro has made in my site traffic and user engagement has been nothing short of astounding. I can't recommend it enough to anyone who wants to truly leverage their social media presence!.</p>
+					<p>The difference Post Promoter Pro has made in my site traffic and user engagement has been nothing short of astounding. I can't recommend it enough to anyone who wants to truly leverage their social media presence!</p>
 					<footer>—  Dan Griffiths, section214.com</footer>
 				</blockquote>
 			</div>
