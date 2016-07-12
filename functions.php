@@ -861,3 +861,67 @@ function ppp_ninja_forms_form_wrap_class( $wrap_class, $form_id ) {
 	return $wrap_class;
 }
 add_filter( 'ninja_forms_form_wrap_class', 'ppp_ninja_forms_form_wrap_class', 10, 2 );
+
+function themedd_entry_meta() {
+	if ( 'post' == get_post_type() ) {
+		global $post, $current_user;
+		$author = get_userdata( $post->post_author );
+		?>
+		<div class="author-profile">
+				<span class="author-profile-avatar">
+				<?php echo get_avatar( get_the_author_meta( 'user_email' ), 75 ); ?>
+				</span>
+
+				<div class="author-profile-info">
+						<h3 class="author-profile-title">
+								<?php esc_html_e( 'Written by', 'themedd' ); ?>
+								<?php echo esc_html( get_the_author() ); ?></h3>
+
+						<?php if ( empty( $author->description ) && $post->post_author == $current_user->ID ) { ?>
+								<div class="author-description">
+										<p>
+										<?php
+												$profileString = sprintf( wp_kses( __( 'Complete your author profile info to be shown here. <a href="%1$s">Edit your profile &rarr;</a>', 'themedd' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'profile.php' ) ) );
+												echo $profileString;
+										?>
+										</p>
+								</div>
+						<?php } else if ( $author->description ) { ?>
+								<div class="author-description">
+										<p><?php the_author_meta( 'description' ); ?></p>
+								</div>
+						<?php } ?>
+
+						<div class="author-profile-links">
+								<?php if ( $author->user_url ) { ?>
+										<?php printf( '<a href="%s"><i class="fa fa-external-link-square"></i> %s</a>', $author->user_url, __( 'Website', 'themedd' ) ); ?>
+								<?php } ?>
+						</div>
+				</div><!-- .author-drawer-text -->
+		</div><!-- .author-profile -->
+		<?php
+	}
+
+	if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
+		themedd_entry_date();
+	}
+
+	$format = get_post_format();
+	if ( current_theme_supports( 'post-formats', $format ) ) {
+		printf( '<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span>',
+			sprintf( '<span class="screen-reader-text">%s </span>', esc_html_x( 'Format', 'Used before post format.', 'themedd' ) ),
+			esc_url( get_post_format_link( $format ) ),
+			esc_html( get_post_format_string( $format ) )
+		);
+	}
+
+	if ( 'post' == get_post_type() ) {
+		themedd_entry_taxonomies();
+	}
+
+	if ( ! is_singular() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+		echo '<span class="comments-link">';
+		comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'themedd' ), get_the_title() ) );
+		echo '</span>';
+	}
+}
