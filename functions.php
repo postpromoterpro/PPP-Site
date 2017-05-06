@@ -965,5 +965,7 @@ function ppp_check_if_is_renewal( $return, $discount_id, $code, $user ) {
 }
 add_filter( 'edd_is_discount_valid', 'ppp_check_if_is_renewal', 99, 4 );
 
-remove_action('wp_footer', 'pippin_display_notice');
-add_action( 'themedd_site_before', 'pippin_display_notice' ); 
+if ( function_exists( 'pippin_display_notice' ) ) {
+	remove_action('wp_footer', 'pippin_display_notice');
+	add_action( 'themedd_site_before', 'pippin_display_notice' );
+}
