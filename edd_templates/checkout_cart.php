@@ -155,8 +155,11 @@ global $post; ?>
 			<p class="edd-alert edd-alert-discount">
 				<span class="edd_discount">
 					<strong>Discount:</strong>&nbsp;
-					<span class="edd_discount_rate"><?php echo $discount; ?>&nbsp;&ndash;&nbsp;<?php echo $rate; ?></span>
-					<a href="<?php echo $remove_url; ?>" data-code="$discount" class="edd_discount_remove">Remove</a>
+					<span class="edd_discount_rate"><?php echo $discount; ?>
+					<?php if ( edd_get_discount_amount( $discount_id ) > 0 ) : ?>
+					&nbsp;&ndash;&nbsp;<?php echo $rate; ?></span>
+					<?php endif; ?>
+					<a href="<?php echo $remove_url; ?>" data-code="$discount" class="ppp_edd_discount_remove">Remove</a>
 				</span>
 			</p>
 

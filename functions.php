@@ -205,7 +205,7 @@ function ppp_header_logo() {
 					<div class="col-xs-12 col-sm-12 col-lg-12 pv-sm-5 aligncenter">
 
 						<h1 class="ph-lg-5 mb-xs-2">
-							Content promotion for WordPress, made easy
+							Social Media sharing for WordPress, made easy
 						</h1>
 
 						<p class="intro">You write great content, but it can get lost in the fast-moving world of social media. Post Promoter Pro makes sure your content is seen.</p>
@@ -590,6 +590,28 @@ function ppp_stripe_credit_card_form( $echo = true ) {
 			</select>
 		</p>
 		<?php do_action( 'edd_after_cc_expiration' ); ?>
+                <p id="edd-card-zip-wrap">
+                        <input type="text" size="4" name="card_zip" class="card-zip edd-input<?php if( edd_field_is_required( 'card_zip' ) ) { echo ' required'; } ?>" placeholder="<?php _e( 'Zip / Postal Code', 'easy-digital-downloads' ); ?>" value=""<?php if( edd_field_is_required( 'card_zip' ) ) {  echo ' required '; } ?>/>
+                </p>
+                <p id="edd-card-country-wrap">
+                        <label for="billing_country" class="edd-label">
+                                <?php _e( 'Billing Country', 'easy-digital-downloads' ); ?>
+                                <?php if( edd_field_is_required( 'billing_country' ) ) { ?>
+                                        <span class="edd-required-indicator">*</span>
+                                <?php } ?>
+                        </label>
+                        <select name="billing_country" id="billing_country" class="billing_country edd-select<?php if( edd_field_is_required( 'billing_country' ) ) { echo ' required'; } ?>"<?php if( edd_field_is_required( 'billing_country' ) ) {  echo ' required '; } ?>>
+                                <?php
+
+                                $selected_country = edd_get_shop_country();
+
+                                $countries = edd_get_country_list();
+                                foreach( $countries as $country_code => $country ) {
+                                  echo '<option value="' . esc_attr( $country_code ) . '"' . selected( $country_code, $selected_country, false ) . '>' . $country . '</option>';
+                                }
+                                ?>
+                        </select>
+                </p>
 
 	</fieldset>
 	<?php
@@ -603,8 +625,8 @@ function ppp_stripe_credit_card_form( $echo = true ) {
 
 	return $form;
 }
-remove_action( 'edd_stripe_cc_form', 'edds_credit_card_form' );
-add_action( 'edd_stripe_cc_form', 'ppp_stripe_credit_card_form' );
+//remove_action( 'edd_stripe_cc_form', 'edds_credit_card_form' );
+// add_action( 'edd_stripe_cc_form', 'ppp_stripe_credit_card_form' );
 
 function ppp_user_info_fields() {
 
@@ -650,6 +672,7 @@ add_action( 'edd_purchase_form_after_user_info', 'ppp_user_info_fields' );
 add_action( 'edd_register_fields_before', 'ppp_user_info_fields' );
 
 function ppp_default_cc_address_fields() {
+	return;
 	$logged_in = is_user_logged_in();
 	$customer  = EDD()->session->get( 'customer' );
 	$customer  = wp_parse_args( $customer, array( 'address' => array(
@@ -751,8 +774,8 @@ function ppp_default_cc_address_fields() {
 	<?php
 	echo ob_get_clean();
 }
-remove_action( 'edd_after_cc_fields', 'edd_default_cc_address_fields' );
-add_action( 'edd_after_cc_fields', 'ppp_default_cc_address_fields' );
+// remove_action( 'edd_after_cc_fields', 'edd_default_cc_address_fields' );
+// add_action( 'edd_after_cc_fields', 'ppp_default_cc_address_fields' );
 
 function ppp_payment_mode_select() {
 	$gateways = edd_get_enabled_payment_gateways( true );
@@ -799,7 +822,7 @@ remove_action( 'edd_payment_mode_select', 'edd_payment_mode_select' );
 add_action( 'edd_payment_mode_select', 'ppp_payment_mode_select' );
 
 // Remove the Renewal and Discount Code fields
-remove_action( 'edd_checkout_form_top', 'edd_discount_field', -1 );
+// remove_action( 'edd_checkout_form_top', 'edd_discount_field', -1 );
 remove_action( 'edd_before_purchase_form', 'edd_sl_renewal_form', -1 );
 
 function ppp_empty_cart_on_add() {
@@ -842,7 +865,7 @@ function ppp_ajax_change_price_id() {
 	$price_id    = $_POST['price_id'];
 
 	// Remove cart contents
-	EDD()->session->set( 'edd_cart', NULL );
+	edd_remove_from_cart( 0 );
 
 	edd_add_to_cart( $download_id, array( 'price_id' => $price_id ) );
 
@@ -925,3 +948,22 @@ function themedd_entry_meta() {
 		echo '</span>';
 	}
 }
+
+function ppp_check_if_is_renewal( $return, $discount_id, $code, $user ) {
+
+	if ( strtoupper( $code ) === 'H5KM6Y' ) {
+		$cart_contents = edd_get_cart_contents();
+		foreach ( $cart_contents as $item ) {
+			if ( $item['options']['price_id'] == 3 || $item['options']['price_id'] == 2 ) {
+				edd_set_error( 'edd-discount-error', __( 'This discount is only valid on Personal and Business plans', 'edd' ) );
+				return false;
+			}
+		}
+	}
+
+	return $return;
+}
+add_filter( 'edd_is_discount_valid', 'ppp_check_if_is_renewal', 99, 4 );
+
+remove_action('wp_footer', 'pippin_display_notice');
+add_action( 'themedd_site_before', 'pippin_display_notice' ); 

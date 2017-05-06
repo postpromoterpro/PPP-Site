@@ -86,7 +86,7 @@ $wrapper_class = ! is_user_logged_in() ? ' slim' : '';
 
 			<div id="tab-4">
 				<h2>Downloads</h2>
-				<?php echo do_shortcode( '[download_history]'); ?>
+				<?php //echo do_shortcode( '[download_history]'); ?>
 
 
 				<?php if ( function_exists( 'ppp_edd_download_url' ) && ppp_edd_download_url( ppp_get_download_id() ) ) : ?>

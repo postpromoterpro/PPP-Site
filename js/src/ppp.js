@@ -90,4 +90,8 @@ jQuery(document).ready(function($) {
       return false;
    });
 
+   $('body').on( 'edd_discount_applied', function() {
+	location.reload(true);
+   });
+
 });
