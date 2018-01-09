@@ -987,10 +987,13 @@ function ppp_check_if_is_renewal( $return, $discount_id, $code, $user ) {
 }
 add_filter( 'edd_is_discount_valid', 'ppp_check_if_is_renewal', 99, 4 );
 
-remove_action('wp_footer', 'pippin_display_notice');
-add_action( 'themedd_site_before', 'pippin_display_notice' );
 
 function ppp_maybe_show_discount_field() {
 	remove_action( 'edd_checkout_form_top', 'edd_discount_field', -1 );
 }
 //add_action( 'init', 'ppp_maybe_show_discount_field' );
+
+if ( function_exists( 'pippin_display_notice' ) ) {
+	remove_action('wp_footer', 'pippin_display_notice');
+	add_action( 'themedd_site_before', 'pippin_display_notice' );
+}
