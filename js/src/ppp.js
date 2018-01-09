@@ -94,4 +94,10 @@ jQuery(document).ready(function($) {
 	location.reload(true);
    });
 
+    $('.icon-mail').click( function() {
+	console.log('clicked-send');
+	$('.hwp-row.hwp-text').hide();
+
+    });
+
 });

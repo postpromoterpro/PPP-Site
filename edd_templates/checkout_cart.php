@@ -25,7 +25,8 @@ global $post; ?>
 							$price_id   = isset( $item['options']['price_id'] ) ? $item['options']['price_id'] : false;
 							$item_title = edd_get_cart_item_name( $item );
 							echo '<span class="edd_checkout_cart_item_title">' . esc_html( $item_title ) . '</span>';
-
+							
+							if ( ! isset( $item['options']['is_renewal'] ) && ! isset( $item['options']['is_upgrade'] ) ) :
 							$item_prices = edd_get_variable_prices( $item['id'] );
 							$description = '';
 
@@ -41,6 +42,7 @@ global $post; ?>
 							</select>
 							</span>
 							<?php
+							endif;
 							do_action( 'edd_checkout_cart_item_title_after', $item );
 						?>
 						</p>
@@ -52,11 +54,20 @@ global $post; ?>
 
 						<?php do_action( 'edd_cart_actions', $item, $key ); ?>
 						<a class="edd_cart_remove_item_btn" href="<?php echo esc_url( edd_remove_item_url( $key ) ); ?>"><?php _e( 'Remove', 'easy-digital-downloads' ); ?></a>
+						<br />
+						<?php
+                                                if ( edd_recurring()->cart_has_free_trial() ) {
+                                                        echo '<em>$0.00 due today</em>';
+                                                }
+						?>
 						</p>
 					</td>
 					<td>
 						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> Instant plugin download</span>
 						<?php if ( edd_recurring()->cart_contains_recurring() ) : ?>
+						<?php if ( edd_recurring()->cart_has_free_trial() ) : ?>
+						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> 7-Day Free Trial</span>
+						<?php endif; ?>
 						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> One year access to easy updates</span>
 						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> One year of professional support</span>
 						<span class="ppp-checkout-item-features"><i class="fa fa-check-circle" aria-hidden="true"></i> Renews yearly with hassle-free subscriptions</span>
@@ -80,12 +91,11 @@ global $post; ?>
 
 					<td class="edd_cart_fee_label"><?php echo esc_html( $fee['label'] ); ?></td>
 					<td class="edd_cart_fee_amount"><?php echo esc_html( edd_currency_filter( edd_format_amount( $fee['amount'] ) ) ); ?></td>
+					<?php if( ! empty( $fee['type'] ) && 'item' == $fee['type'] ) : ?>
 					<td>
-						<?php if( ! empty( $fee['type'] ) && 'item' == $fee['type'] ) : ?>
-							<a href="<?php echo esc_url( edd_remove_cart_fee_url( $fee_id ) ); ?>"><?php _e( 'Remove', 'easy-digital-downloads' ); ?></a>
-						<?php endif; ?>
-
+						<a href="<?php echo esc_url( edd_remove_cart_fee_url( $fee_id ) ); ?>"><?php _e( 'Remove', 'easy-digital-downloads' ); ?></a>
 					</td>
+					<?php endif; ?>
 
 					<?php do_action( 'edd_cart_fee_rows_after', $fee_id, $fee ); ?>
 
@@ -164,7 +174,13 @@ global $post; ?>
 			</p>
 
 		<?php endforeach; ?>
-
-	<?php endif; ?>
+		<?php
+			$total_savings = edd_currency_filter( edd_format_amount( edd_get_cart_discounted_amount() ) );
+		?>
+		<p id="edd_final_savings_wrap">
+		<strong>Total Savings:</strong>
+		<span class="edd_cart_amount"><?php echo $total_savings; ?></span>
+		</p>
+		<?php endif; ?>
 	<?php do_action( 'edd_checkout_table_discount_last' ); ?>
 </tr>

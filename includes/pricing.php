@@ -22,13 +22,14 @@ function ppp_pricing_table( $blank_tab = false ) {
 
                                 <div class="col-xs-12 col-sm-6 col-lg-3 align-xs-center mb-xs-2">
                                         <div class="table-option pv-xs-2">
-
                                                         <h2>Lifetime</h2>
 
                                                         <ul class="mb-xs-2">
 
                                                                 <li class="pricing">
-                                                                        <span class="price"><span class="currency">$</span>429</span>
+                                                                        <span class="price">
+										<span class="currency">$</span>499
+									</span>
                                                                 </li>
 
                                                                 <li class="feature"><strong>Unlimited sites</strong></li>
@@ -45,7 +46,7 @@ function ppp_pricing_table( $blank_tab = false ) {
 
                                 <div class="col-xs-12 col-sm-6 col-lg-3 align-xs-center mb-xs-2 best-value">
                                         <div class="table-option pv-xs-2">
-						<span>Most Popular</span>
+                                                <span>Most Popular</span>
                                                         <h2>Professional</h2>
 
                                                         <ul class="mb-xs-2">
@@ -53,14 +54,14 @@ function ppp_pricing_table( $blank_tab = false ) {
                                                                 <li class="pricing">
                                                                         <span class="price"><span class="currency">$</span>249</span>
                                                                 </li>
-								<li class="feature showcase">A $138 Savings<sup>&dagger;</sup></li>
-                                                                <li class="feature"><strong>Up to 15 Sites</strong></li>
+                                                                <li class="feature showcase">A $198 Savings<sup>&dagger;</sup></li>
+                                                                <li class="feature"><strong>Unlimited Sites</strong></li>
                                                                 <li class="feature">Plugin updates*</li>
                                                                 <li class="feature">Email support*</li>
                                                         </ul>
 
                                                         <div class="footer">
-                                                                <a class="button" <?php echo $blank_tab ? 'target="_blank"' : ''; ?> href="<?php echo $download_url; ?>&amp;edd_options[price_id]=2">Sign Up</a>
+                                                                <a class="button" <?php echo $blank_tab ? 'target="_blank"' : ''; ?> href="<?php echo $download_url; ?>&amp;edd_options[price_id]=2">Subscribe Now</a>
                                                         </div>
                                         </div>
                                 </div>
@@ -74,7 +75,7 @@ function ppp_pricing_table( $blank_tab = false ) {
                                                                 <li class="pricing">
 
                                                                         <span class="price">
-                                                                                <span class="currency">$</span>129</span>
+                                                                        <span class="currency">$</span>149
                                                                 </li>
 
                                                                 <li class="feature"><strong>Up to 5 Sites</strong></li>
@@ -83,11 +84,10 @@ function ppp_pricing_table( $blank_tab = false ) {
                                                         </ul>
 
                                                         <div class="footer">
-                                                                <a class="button" <?php echo $blank_tab ? 'target="_blank"' : ''; ?> href="<?php echo $download_url; ?>&amp;edd_options[price_id]=1">Sign Up</a>
+                                                                <a class="button" <?php echo $blank_tab ? 'target="_blank"' : ''; ?> href="<?php echo $download_url; ?>&amp;edd_options[price_id]=1">Subscribe Now</a>
                                                         </div>
                                         </div>
                                 </div>
-
 
 				<div class="col-xs-12 col-sm-6 col-lg-3 align-xs-center mb-xs-5 mb-sm-2">
 					<div class="table-option pv-xs-2">
@@ -96,7 +96,7 @@ function ppp_pricing_table( $blank_tab = false ) {
 
 						<ul class="mb-xs-2">
 							<li class="pricing">
-								<span class="price"><span class="currency">$</span>59</span>
+								<span class="price"><span class="currency">$</span>99</span>
 							</li>
 							<li class="feature"><strong>1 site</strong></li>
 							<li class="feature">Plugin updates*</li>
@@ -104,7 +104,7 @@ function ppp_pricing_table( $blank_tab = false ) {
 						</ul>
 
 						<div class="footer">
-							<a class="button" <?php echo $blank_tab ? 'target="_blank"' : ''; ?> href="<?php echo $download_url; ?>&amp;edd_options[price_id]=0">Sign Up</a>
+							<a class="button" <?php echo $blank_tab ? 'target="_blank"' : ''; ?> href="<?php echo $download_url; ?>&amp;edd_options[price_id]=0">Subscribe Now</a>
 						</div>
 
 					</div>

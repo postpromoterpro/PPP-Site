@@ -23,6 +23,7 @@ function ppp_setup() {
 
 	require_once( trailingslashit( PPP_INCLUDES_DIR ) . 'pricing.php' );
 	require_once( trailingslashit( PPP_INCLUDES_DIR ) . 'custom.php' );
+	require_once( trailingslashit( PPP_INCLUDES_DIR ) . 'countdown.php' );
 
 	// EDD functions
 	if ( function_exists( 'themedd_is_edd_active' ) && themedd_is_edd_active() ) {
@@ -205,15 +206,16 @@ function ppp_header_logo() {
 					<div class="col-xs-12 col-sm-12 col-lg-12 pv-sm-5 aligncenter">
 
 						<h1 class="ph-lg-5 mb-xs-2">
-							Social Media sharing for WordPress, made easy
+							The easiest social network auto poster for WordPress
 						</h1>
 
-						<p class="intro">You write great content, but it can get lost in the fast-moving world of social media. Post Promoter Pro makes sure your content is seen.</p>
+						<!--<p class="intro">You write great content, but it can get lost in the fast-moving world of social media. Post Promoter Pro makes sure your content is seen.</p>-->
+						<p class="intro">Schedule all your social media shares, right from within WordPress.</p>
 
 
 <div id="cta">
-	<a href="#content" class="scroll button large mb-xs-2">Find out how</a>
-
+	<a href="#content" class="scroll button large mb-xs-2" style="background-color:#8D4AAD;border: 1px solid #8D4AAD;">Learn More</a>
+	<a href="/pricing" class="button large mb-xs-2">Get Started</a>
 	<svg version="1.1" id="like-this" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="128.068px" height="45.865px" viewBox="0 0 128.068 45.865" enable-background="new 0 0 128.068 45.865"
 	 xml:space="preserve">
@@ -826,7 +828,18 @@ add_action( 'edd_payment_mode_select', 'ppp_payment_mode_select' );
 remove_action( 'edd_before_purchase_form', 'edd_sl_renewal_form', -1 );
 
 function ppp_empty_cart_on_add() {
-	edd_empty_cart();
+	$discounts     = edd_get_cart_discounts();
+	$cart_contents = edd_get_cart_contents();
+
+	foreach ( $cart_contents as $key => $item ) {
+		edd_remove_from_cart( $key );
+	}
+
+	if ( ! empty( $discounts ) ) {
+		foreach ( $discounts as $discount ) {
+			edd_set_cart_discount( $discount );
+		}
+	}
 }
 add_action( 'edd_add_to_cart', 'ppp_empty_cart_on_add', 1 );
 
@@ -863,13 +876,17 @@ remove_action( 'login_enqueue_scripts', 'ppp_login_logo' );
 function ppp_ajax_change_price_id() {
 	$download_id = $_POST['download_id'];
 	$price_id    = $_POST['price_id'];
-
+	$discounts   = edd_get_cart_discounts();
 	// Remove cart contents
 	edd_remove_from_cart( 0 );
 
-	edd_add_to_cart( $download_id, array( 'price_id' => $price_id ) );
+        if ( ! empty( $discounts ) ) {
+                foreach ( $discounts as $discount ) {
+                        edd_set_cart_discount( $discount );
+                }
+        }
 
-	echo json_encode( array( 'url' => edd_get_checkout_uri() ) );
+	echo json_encode( array( 'url' => 'https://postpromoterpro.com/checkout/?edd_action=add_to_cart&download_id=' . $download_id . '&edd_options[price_id]=' . $price_id ) );
 	die();
 }
 add_action( 'wp_ajax_ppp_switch_price', 'ppp_ajax_change_price_id' );
@@ -961,9 +978,19 @@ function ppp_check_if_is_renewal( $return, $discount_id, $code, $user ) {
 		}
 	}
 
+	if ( strtoupper( $code ) === 'LIFETIME32' && edd_recurring()->cart_contains_recurring() ) {
+		edd_set_error( 'edd-discount-error', __( 'This discount is only valid for the lifetime license', 'edd' ) );
+		return false;
+	}
+
 	return $return;
 }
 add_filter( 'edd_is_discount_valid', 'ppp_check_if_is_renewal', 99, 4 );
 
 remove_action('wp_footer', 'pippin_display_notice');
-add_action( 'themedd_site_before', 'pippin_display_notice' ); 
+add_action( 'themedd_site_before', 'pippin_display_notice' );
+
+function ppp_maybe_show_discount_field() {
+	remove_action( 'edd_checkout_form_top', 'edd_discount_field', -1 );
+}
+//add_action( 'init', 'ppp_maybe_show_discount_field' );

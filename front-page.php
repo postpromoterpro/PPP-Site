@@ -2,14 +2,82 @@
 /**
  * Front page
  */
-get_header(); ?>
+get_header();
 
+if ( current_user_can( 'administrator' ) ):
+?>
+<!--
+<section class="container-fluid pv-xs-2 ph-lg-4 pv-lg-4 highlight" id="trusted-by">
+	<div class="wrapper wide">
+		<span style="text-align: center;" class="subtitle">Some companies that trust Post Promtoer Pro</span>
+		<div>
+
+		</div>
+	</div>
+</section>
+-->
+<?php endif; ?>
+<!--
 <section class="container-fluid pv-xs-2 pv-lg-6 ph-lg-4 center-xs">
 	<div class="wrapper slim">
 		<h1>Engage your followers</h1>
 		<p>Engage people who may have missed the original post; Post Promoter Pro allows you to customize the text that sits before the link to your content. Experiment with hashtags, a call to action, or interesting text that starts a conversation and compels your followers to view your post.</p>
 	</div>
 
+</section>
+-->
+<section class="container-fluid pv-xs-4" id="plus-more">
+        <div class="wrapper wide">
+
+                <h3 class="title-rule"><span>Generate more traffic with Post Promoter Pro</span></h3>
+		<span style="text-align: center;" class="subtitle">Increase visibility. Get more leads. Engage your followers.</span>
+
+                <div class="row center-xs">
+
+                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                <h4><i class="fa fa-clock-o" aria-hidden="true"></i></h4>
+                                <h4>Quick and Easy Setup</h4>
+                                <p>Just install and sign into your social media accounts. Its that easy.</p>
+                        </div>
+
+                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                <h4><i class="fa fa-bar-chart" aria-hidden="true"></i></h4>
+                                <h4>Google Analytics Tracking</h4>
+                                <p>Visualize your results in Google Analytics with Post Promoter Pro's integrated UTM tracking.</p>
+                        </div>
+
+                        <div class="col-xs-12 col-md-4 col-lg-4 ">
+                                <h4><i class="fa fa-life-ring" aria-hidden="true"></i></h4>
+                                <h4>World-class support</h4>
+                                <p>We're here to answer any Post Promoter Pro related questions you have with friendly, email-based support.</p>
+
+                        </div>
+
+
+                </div>
+                <div class="row center-xs">
+
+                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                <h4><i class="fa fa-retweet" aria-hidden="true"></i></h4>
+                                <h4>Automated Retweeting</h4>
+                                <p>Let your author's automatically retweet their content from their own accounts.</p>
+                        </div>
+
+                        <div class="col-xs-12 col-md-4 col-lg-4 ">
+                                <h4><i class="fa fa-usd" aria-hidden="true"></i></h4>
+                                <h4>Visualize Sales</h4>
+                                <p>With Google Analytics eCommerce Tracking, you can see the affects Post Promoter Pro has on your sales.</p>
+
+                        </div>
+
+                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                <h4><i class="fa fa-code-fork" aria-hidden="true"></i></h4>
+                                <h4>Developer Friendly</h4>
+                                <p>This extensible plugin is built from the ground up, using WordPress actions and filters that allow you to adapt it for your specific needs.</p>
+                        </div>
+
+                </div>
+        </div>
 </section>
 
 <section class="container-fluid pv-xs-2 ph-lg-4 pv-lg-4 highlight">
@@ -130,37 +198,6 @@ get_header(); ?>
 		</div>
 
 
-	</div>
-</section>
-
-
-<section class="container-fluid mb-xs-4" id="plus-more">
-	<div class="wrapper wide">
-
-		<h3 class="title-rule"><span>Plus More</span></h3>
-
-		<div class="row center-xs">
-
-			<div class="col-xs-12 col-md-4 col-lg-4">
-				<h4><i class="fa fa-clock-o" aria-hidden="true"></i></h4>
-				<h4>Quick and Easy Setup</h4>
-				<p>No need to hastle with keys and tokens. Just install and sign into your social media accounts. Its that easy.</p>
-			</div>
-
-			<div class="col-xs-12 col-md-4 col-lg-4 ">
-				<h4><i class="fa fa-life-ring" aria-hidden="true"></i></h4>
-				<h4>World-class support</h4>
-				<p>We're here to answer any Post Promoter Pro related questions you have with friendly, email-based support.</p>
-
-			</div>
-
-			<div class="col-xs-12 col-md-4 col-lg-4">
-				<h4><i class="fa fa-code-fork" aria-hidden="true"></i></h4>
-				<h4>Developer Friendly</h4>
-				<p>This extensible plugin is built from the ground up, using WordPress actions and filters that allow you to adapt it for your specific needs.</p>
-			</div>
-
-		</div>
 	</div>
 </section>
 

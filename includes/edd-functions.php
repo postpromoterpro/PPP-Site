@@ -87,7 +87,7 @@ function ppp_empty_cart_redirect() {
 		exit;
 	}
 }
-add_action( 'template_redirect', 'ppp_empty_cart_redirect' );
+//add_action( 'template_redirect', 'ppp_empty_cart_redirect' );
 
 
 /**
